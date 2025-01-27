@@ -1,0 +1,346 @@
+// Fibonacci Series
+let a = 0;
+let b = 1;
+
+console.log(a);
+console.log(b);
+
+for (let i = 2; i < 10; i++) {
+        console.log("A",a);
+    console.log("B",b);
+
+    let c = a + b;
+    a = b;
+    b = c;
+}
+
+// Factorial
+let result = 1
+for(let i=1;i<=5;i++){
+    result = result * i
+    console.log('result',result)
+}
+
+
+// Reverse String
+
+let str1 = 'priyanka'
+let arr = str1.split('')
+let reverse1 =''
+for(let i=0;i<arr.length;i++){
+    reverse1 = arr[i] + reverse1
+}
+console.log('reverse1',reverse1)
+
+// Reverse arr
+let arr = [11, 10, 35, 40, 30, 15];
+
+let reverse = []
+
+for (let i=arr.length-1;i>=0;i--){
+    reverse.push(arr[i])
+}
+console.log('reverse',reverse)
+
+// Reverse number
+let str = 56
+let arr = str.toString().split('')
+let reverse =''
+for(let i=0;i<arr.length;i++){
+    reverse = arr[i] + reverse
+}
+console.log('reverse',reverse)
+
+// Palindrom
+
+let str = 'nitin';
+let reverse = ''
+for (let ele of str) {
+    reverse = ele + reverse
+}
+if(str === reverse){
+    console.log('String is Palindrom')
+}else{
+    console.log('String is not Palindrom')
+}
+
+
+// Pyramid
+
+for(let i=0;i<5;i++){                                                                          // *
+    let row = ''                                                                              // ***     
+    for(let j=0;j<5-i-1;j++){                                                                // *****
+    row = row + " "                                                                         // *******
+    }                                                                                      // *********
+    for(let k=0;k<((2*i)+1);k++){
+        row = row + "*"
+    }
+    console.log(row);
+}
+
+for(let i=0;i<=5;i++){
+    let row = ''
+    for(let j=5;j>i;j--){
+        row = row + " "
+    }
+    for(let k=0;k<((2*i)+1);k++){
+        row = row + "*"
+    }
+    console.log(row);
+}
+
+// Reverse Pyramid
+for(let i=5;i>0;i--){
+    let row = ''
+    for(let j=5;j>i;j--){
+        row = row + " "
+    }
+    for(let k=0;k<((2*i)-1);k++){
+        row = row + "*"
+    }
+    console.log(row);
+}
+
+// Remove duplicates from array
+
+let arr = [1,2,1,4,5,4,6]
+
+// let unique = [...new Set(arr)]
+// console.log('unique',unique)
+
+let unique = arr.filter((elm,index)=>{
+    return arr.indexOf(elm) === index
+})
+console.log('unique',unique)
+
+// Print duplicates from array
+
+let arr = [1,2,1,4,5,4,6]
+
+let unique2 = arr.filter((elm,index)=>{
+    return arr.indexOf(elm) !== index
+})
+console.log('unique2',unique2)
+
+// Find second max value in array
+
+let arr = [11,12,10,35,40,30,15]
+let max=0;
+let secondMax=0;
+for(let i=0;i<arr.length;i++){
+    if(arr[i]>max){
+        secondMax = max
+        max=arr[i]
+    }else if(arr[i]>secondMax && arr[i]<max){
+        secondMax = arr[i]
+    }
+}
+
+console.log('secondMax',secondMax)
+
+// Find second min value in array
+
+let arr = [110,12,10,35,40,30,15]
+let min=arr[0];
+let secondMin=arr[1];
+for(let i=0;i<arr.length;i++){
+    if(arr[i]<min){
+        secondMin = min
+        min=arr[i]
+    }else if(arr[i]<secondMin && arr[i]>min){
+        secondMin = arr[i]
+    }
+}
+
+console.log('secondMin',secondMin)
+
+// Find two array equal or not
+
+let arr1 = [1, 2, 3, 3, 4]
+let arr2 = [1, 2, 3, 4, 3]
+let equal = true
+
+if(arr1.length !== arr2.length){
+    equal = true
+}else{
+   for(let i=0;i<arr1.length;i++){
+        if(arr1[i]!==arr2[i]){
+            equal = false
+            break
+        }
+    }
+}
+if(equal){
+    console.log('equal')
+}else{
+    console.log('not equal')
+}
+
+// Find intersection two array
+
+let arr1 = [1, 2, 3, 3, 4]
+let arr2 = [1, 2, 3, 4, 3, 6, 33]
+
+// let intrsection = arr1.filter((ele)=>{
+//     return arr2.includes(ele)
+// }) 
+
+let intersection = [];
+
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+            intersection.push(arr1[i]);
+            break;
+        }
+    }
+}
+
+console.log("Intersection of arr1 and arr2:", intersection);
+
+// Find union two array
+
+let arr1 = [1, 2, 3, 3, 4]
+let arr2 = [1, 2, 3, 4, 3, 6, 33]
+
+let union = [ ... new Set([...arr1, ...arr2])]
+
+// Add element to array in perticular position
+
+let arr = [10, 3, 889,26, 44, 59, 9];
+
+let newEle = 889
+let pos = 2
+let newArr =[]
+for(let i=0;i<arr.length;i++){
+    if(i===pos){
+        newArr.push(newEle)
+    }
+    newArr.push(arr[i])
+}
+console.log('newArr',newArr)
+
+// Delete element to array in perticular position
+let arr = [10, 3, 26, 44, 59, 9];
+let pos = 2;
+
+for (let i = pos; i < arr.length - 1; i++) {
+    arr[i] = arr[i + 1];
+}
+
+// Remove the last element since it's been shifted left
+arr.pop();
+
+console.log("Array after deleting element at position", pos, ":", arr);
+
+// Merge Two array
+
+let arr1 = [23, 4, 33, 56, 8, 21]
+let arr2 = [54, 33, 9, 67, 92]
+let arr3 = [];
+
+for (let i = 0; i < arr1.length; i++) {
+    arr3[i] = arr1[i]
+}
+
+for (let  j= 0; j < arr2.length; j++) {
+    arr3[arr1.length + j] = arr2[j]
+}
+
+console.log('arr3',arr3)
+
+// Program to find a missing number in an integer array
+
+let arr = [1, 2, 4, 5]
+let len = arr.length + 1
+
+let sum1 = (len * (len + 1)) / 2
+let sum2 = 0
+for (let i = 0; i < arr.length; i++) {
+    sum2 = sum2 + arr[i]
+}
+let missingNum = sum1 - sum2
+
+console.log(missingNum)
+
+// ======
+
+let arr = [2, 1, 3, 5,6]
+
+let total = ((arr.length + 1) * (arr.length + 2)) / 2
+
+for (let i = 0; i < arr.length; i++) {
+    total = total - arr[i]
+}
+
+console.log(total)
+
+// =======================
+
+let arr = [1, 2, 4, 5, 8, 9];
+let missingNumbers = [];
+
+for (let i = 0; i < arr.length - 1; i++) {
+    let diff = arr[i + 1] - arr[i];
+    if (diff > 1) {
+        for (let j = 1; j < diff; j++) {
+            missingNumbers.push(arr[i] + j);
+        }
+    }
+}
+
+console.log("Missing numbers:", missingNumbers);
+
+// Array flat method implementation 
+
+let arr = [1, 2, [3, 4, [5, 6, [7, [8, 9]]]]]
+
+function flatten(arr){
+    let newArr = arr.reduce((acc, item) => {
+        if (Array.isArray(item)) {
+            acc = acc.concat(flatten(item))
+        } else {
+            acc.push(item)
+        }
+        return acc
+    }, [])
+
+    return newArr
+}
+let result = flatten(arr)
+
+console.log('result',result)
+
+// Convert array into Mutidimentional array 
+
+const arr = [1, 2, 3, 4, 5, 6];
+let size = 7
+
+const newArr = [];
+while (arr.length) {
+    newArr.push(arr.splice(0, size))
+}
+
+//================= 
+
+let arr = [1, 2, 3, 4, 5, 6]
+let size = 2
+let result = []
+let inc = -1
+
+    for (let i = 0; i < arr.length; i++) {
+        
+        if (i % size == 0) {
+            inc++
+            result[inc] = []
+        }
+        result[inc].push(arr[i])
+    }
+
+console.log('result',result)
+
+
+
+
+
+

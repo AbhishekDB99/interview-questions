@@ -1,0 +1,28 @@
+tell me abou your self ?
+    I am Rohit Metakar. I am 24 year old and i am from shirpur(maharashtra).
+    i have done my master's in integreted MCA from Rc patel IMRD collage, shirpur. 
+    from last 2 years i am working in facile info serv as backeend developer which include in nodejs, javascript, express js and mysql database.
+    As node js developer i have developed module or integreted tool / application for orgenasatiion internal purpose.
+ and i have handle the orgenization databases in mysql. i have worked on API creation using REST API service that managing the Mysql database.
+    also as being developer involved and responsible for buisness requirment and provided the robust solution to client. that's all about me.
+
+    i have worked on 2 projects. 
+    PULSE and PRIDIVTIV : 
+
+        - pulse : it is lead generations project. it contain various role that provided the different accout as per the resposibilty. 
+	to generate the lead that provide by the dial and the dialed data are supression took place and the valide lead are provided by client. 
+	for dialing purpose we have integreted the third party Twilio API web service.
+
+    pridictiv :
+     Project Name Predictiv | Chrome Extension
+
+            Predictiv extension is the ultimate tool for companies looking to enhance their
+            sales strategies and gain a competitive advantage in the market. Simply visit a
+            LinkedIn profile, and our extension extracts relevant sales data, including
+            contact information such as verified email address & phone number, job
+            history, company size, and industry sector.
+
+            Project Name Predictiv WEB APPLICATION
+            Predictiv is a market intelligence platform for B2B sales and marketing teams,
+            the integrated cloud-based platform provider, and marketers with
+            comprehensive information to help them to find potential new.

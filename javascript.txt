@@ -1,0 +1,395 @@
+nodejs (lts: 18.12.0) (current: 19.0.0)  (used: 14.15)
+mongodb (current: 6.0) (used: 4.6)
+elasticsearch (current 8.4) (used: 7.5)
+
+What is undefined and null ? 
+
+    - undefined means the variable can declared but it doeas not have assign any value.
+    - null means it is assignment value, thats variable has been declared variable and aissgned value as null. 
+
+1. What is Javascript ? 
+
+    - javascript is scripting langauage that anables to create dynamically and updating content, control multimedia, animate image and everything.
+
+1. hoisting :
+    - hoisting is where the variable of function declaration moved to top of its scope
+    ex: 
+        x = 3;
+        console.log(x)
+        var x;
+
+2. clouser
+    - clouser means the inner function has access to its outer function variable.
+    - it is used to hiding implementation details in javascript. or it is used to create the private variables or functions.
+    - by hoisting we can achive data encapsulation by creating private variables and functions
+    ex:
+        function createCounter(){
+            let count = 0
+            function increment(){
+             count +=1
+             return count;
+             }
+         return increment;
+        }
+
+let counter = createCounter();
+console.log(counter()) //1
+console.log(counter()) //2
+
+3. arrow function
+    - it provides the shorter syntax than function expression
+    - arrow function dosent have there own binding to this. /n  /this returns the object that call the function
+    - arrow function are not suitable for call, apply and bind
+
+4. this keyword :-
+    - It is a reference to the current execution context or the object that the function is bound to when it is invoked.
+    - It refers to the object that the function is a property of.
+    - It always depend on the object that is invoking the function. 
+
+5. Shallow Copy:
+-A shallow copy creates a new object or array and copies the references of the original object's properties or elements. This means that while the top-level properties or elements are copied, any nested objects or arrays are still referenced, so changes made to nested objects or arrays within the copied object will also affect the original object.
+
+const originalobj = {
+    name: "rohit",
+    age: 25,
+    address: {
+        city: "shirpur",
+        zip: "425427"
+    }
+};
+let shallowCopy = Object.assign({}, originalobj)
+originalobj.address.city = "pune"
+
+console.log(originalobj);
+console.log(shallowCopy);
+
+-Deep Copy:
+    A deep copy creates a new object or array and recursively copies all nested objects and arrays, ensuring that changes made to the copied object do not affect the original object.
+
+const originalobj = {
+    name: "rohit",
+    age: 25,
+    address: {
+        city: "pune",
+        zip: "422014"
+    }
+};
+
+let deepCopy = JSON.parse(JSON.stringify(originalobj))
+
+originalobj.address.city = "shirpur"
+
+console.log(deepCopy);
+console.log(originalobj);
+
+
+In the shallow copy example, modifying the nested array within the copied array also affects the original array, while in the deep copy example, the modification does not affect the original array because a new instance of the nested array is created during the deep copy process.
+
+
+11. New features in ES6 and ES7
+    - ES6 
+            - let and const
+        - arrow function
+        - promises
+        - Tempalte literals
+        - multi line string (tilt iperator)
+        - default parameter
+        - destructuring (array, object)  // let obj ={p:21,q:34}     let {p,q}=obj
+        - classes
+        - modules
+        - rest parameter and spread operator
+
+13. difference between map and foreach
+    - map returns new array where foreach returns undefined
+
+        let arr = [ 10,2,44,5,45]
+        let map = arr.map((x)=>x*x)   // [100,4,...]
+        let foreach = arr.foreach((x)=>x*x)   // undefined
+
+    - map returns the array so we can use reduce(), filter(), sort() with map() but not with forEach()
+
+
+12. map 
+    - map is used to iterate the array
+    - creates new array by calling a function for every element in array
+
+    arr.map((currentValue, index, arr)=>{})
+
+13. filter
+    - filter method creates new array with the elements that pass the condition provided by function.
+    - does not executes the function with empty elements
+    - does not changes the original array
+
+
+    let arr = [10,23,2,33,57,4]
+    let filer = arr.filer((ele)=> ele>8)
+
+15. find
+    - returns a value of the first element in array that passes the test
+    - it returns undefined if no element are found
+    - 
+
+16. difference between "forin" and "forof"
+    - forin use to iterate objects and array but forof are used to iterate array
+    - forin iterates ove property name and forof iterates over property value
+
+17. how node.js works
+    - nodejs is single threded and run on chrome v8 engine
+    - it accept the request from client and push it into event loop and dosent wait for response
+    - event loop executes the request in FIFO manner
+    - nodejs is asyncronous in nature.
+
+18. difference between var, let, const
+    - var is functional scope, let and const is block scope.
+    - var can be declared without initialization, let and const can not be decalred without initialization
+    - var can be updated and re decalred, let can be updated but not re decalred, const not updated and re decalred
+    - var allows hoisting , let and const dont allows.
+
+19. difference between dependancies and dev dependancies
+    - dependancies consist of package that required in runtime.
+    - dev dependancies consist of packages that are used in project development phase not in production phase.
+
+20. difference between package.json and packagelog.json
+    - package.json contains the information about minimum required version of the packages.
+    - packagelog.json contains the information of exact version of install package and maitain the hirerchy of required child packages.
+
+21. package.json
+    - package.json file contains the metadata of project
+    - name of project, version of project, description, dependancies, dev dependancies, repository, 
+
+23. call apply and bind
+    - call : 
+        call method calls the function with the given this value and arguments.
+
+    - apply:
+        apply is similar to call except it accept argument in array.
+
+    - bind:
+        bind method returns a function with the provided this.
+
+
+Difference between Spread Operator and Rest Operator
+
+Que : Rest operatore
+
+    - Rest parameters allow a function to accept an infinite number of arguments as an array. This is useful for variadic functions (functions that accept a variable number of arguments).
+    - Denoted by three consecutive dots (…)
+Usage
+
+   - Used to expand an iterable into individual elements
+
+    - Used in function parameters to gather arguments
+
+Example
+
+// function sum(...numbers) {
+//   return numbers.reduce((acc, curr) => acc + curr, 0);
+// }
+
+sread OPeratore:
+    - sread operator allow to iterable to expland array element or argument or key and value in object.
+    - Denoted by three consecutive dots (…)
+
+
+// console.log(sum(1, 2, 3)); // Output: 6
+// console.log(sum(1, 2, 3, 4, 5)); // Output: 15
+
+
+Parameter Position
+
+    Can be used anywhere in an array literal or function call
+
+    Must be the last parameter in a function’s parameter list
+
+Return Value
+
+    Creates a new array with copied elements
+
+    Gathers remaining arguments into an array
+
+Mutability
+
+    Does not modify the original array or object
+
+    Gathers arguments into an array without altering them
+
+Use Cases
+
+    Concatenating arrays, passing arrays as arguments
+
+    Capturing an arbitrary number of function arguments
+
+
+Difference between For loop and for each loop
+For Loop    forEach Loop
+It is one of the original ways of iterating over an array.  It is a newer way with lesser code to iterate over an array.
+It is faster in performance.    It is slower than the traditional loop in performance.
+The break statement can be used to come out from the loop.  The break statement cannot be used because of the callback function.
+The parameters are the iterator, counter, and incrementor.  The parameters are the iterator, index of item, and array to iterate.
+It works with the await keyword.    The await keyword cannot be used due to the callback function. It may lead to incorrect output.
+
+
+36. Ways to copy Object
+    let obj = {
+        "name":"abc"
+    }
+
+    // let obj2 = {...obj}
+
+    // let obj2 = Object.assign({},obj)
+
+    // let obj2 = JSON.parse(JSON.stringify(obj));
+
+37. Ways to create objects
+    - Object literals 
+        let obj = { firstname:"abc" }
+    - using new keyword
+        let obj = new Object()
+    - using classes
+        //using es6 classes
+        class Vehicle {
+            constructor(name, maker, engine) {
+                this.name = name;
+                this.maker =  maker;
+                this.engine = engine;
+            }
+        }
+  
+        let car1 = new Vehicle('GT', 'BMW', '1998cc');
+        console.log(car1.name);  //GT
+
+
+3
+Given a string, reverse each word in the sentence.
+How to check if an object is an array or not? Provide some code.
+How to empty an array in JavaScript?
+How would you check if a number is an integer?
+Write a function that would allow you to do this?
+    var addSix = createBase(6);
+    addSix(10); // returns 16
+    addSix(21); // returns 27
+
+How would you use a closure to create a private counter?
+
+function createCounter(){
+    let count = 4
+    return{
+        increment : function(){
+            count ++
+            return count
+        },
+        decrement : function(){
+            count -- 
+            return count
+        }
+    }
+}
+let counter = createCounter()
+console.log(counter.increment());
+console.log(counter.increment());
+console.log(counter.decrement());
+
+
+
+https://www.fullstack.cafe/blog/javascript-code-interview-questions
+https://javascript.plainenglish.io/javascript-coding-practice-challenges-strings-f2c9a98e8e5e
+https://tkssharma.com/top-coding-interview-questions/
+https://www.toptal.com/javascript/interview-questions
+https://www.geeksforgeeks.org/tag/javascript-string/
+https://avantutor.com/blog/10-simple-javascript-string-exercises/
+https://www.edureka.co/blog/javascript-string-functions/
+
+
+
+
+// front end coding
+1. two button --> plus and minus ---> click on plus will incement the number and click on minus will decrement the number
+2. On button click increment the number.
+
+
+
+
+https://www.interviewbit.com/javascript-interview-questions/#explain-passed-by-value-and-passed-by-reference
+
+https://github.com/sudheerj/javascript-interview-questions
+
+https://www.javatpoint.com/javascript-interview-questions
+
+https://www.simplilearn.com/tutorials/javascript-tutorial/javascript-interview-questions
+
+https://www.edureka.co/blog/interview-questions/javascript-interview-questions/
+
+https://www.guru99.com/javascript-interview-questions-answers.html
+
+
+
+
+Array
+Q1: Write a java program to find duplicate elements in an array?
+Q2: Write a java program to find second largest element in an array
+of integers?
+Q3: Maximum consecutive one’s (or zeros) in a binary array?
+Q4: Write a java program to find all pairs of elements in an integer
+array whose sum is equal to a given number?
+Q5: Write a java program to find continuous sub array whose sum is
+equal to a given number?
+Q6: Write a java program to find the intersection of two arrays?
+Q8: Write a java program to count occurrences of each element in an
+array?
+Q7: Write a java program to find a missing number in an integer
+array?
+Q10: Count Distinct element in every k size window
+
+// Q9: Find a rotation with maximum hamming distance?
+
+
+
+String
+Print duplicate characters from a string?
+Check if two strings are anagrams or not
+Check if a string is a rotated palindrome or not
+Count number of substrings in a string
+
+
+Q12: Check if two strings are k-anagrams or not
+Q13: Check for Balanced Brackets
+Q16: Find all possible palindromic substrings of a string
+Q17: Find the longest substring of a string containing distinct
+characters
+Q19: Find first k non-repeating characters in a string in a single
+traversal
+Q20: Check if a repeated subsequence is present in a string or not
+
+
+polyfill of - forEach, map, filter, reduce, every, some, indexOf, includes, find, findIndex, flat
+
+
+1. what is closure ?
+
+1. implement counter functionality using closure, counter variable should not be accessible from outside.Implement increment, decrement and getCounter fns using closure
+
+
+2. let a= [1,2,3,4];
+    let b ={"key":a};
+    b.key.push(5);
+    console.log(a);
+--------
+3.  let a= [1,2,3,4];
+    let b = a;
+    b.push(5);
+    console.log(a);
+    console.log(b);
+----------
+4. const a = [1,2,3,4];
+    a.push(5);
+    console.log(a);
+
+5. for(var i=0; i<5; i++) { 
+    setTimeout(function () {
+        console.log(i);
+    }, 1000)
+}
+
+6. there is async fn getId which takes id as argument and returns same id. Also you have array of ids and for each element of that array you need to call 
+getId fn but their execution should be parallel. Implement this using async/await
+

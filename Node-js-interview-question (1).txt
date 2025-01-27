@@ -1,0 +1,18 @@
+How node js works ? 
+
+	Node.js is a runtime environment that allows you to run JavaScript code on the server-side. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient for building scalable network applications.
+
+	At its core, Node.js is built on Chrome's V8 JavaScript engine, which compiles JavaScript directly into machine code for faster execution. This means that your JavaScript code runs outside of the browser, enabling you to create server-side applications.
+
+	Node.js works by using an event loop, which is a single thread that listens for events and executes callback functions when those events occur. This asynchronous nature allows Node.js to handle multiple connections simultaneously without getting blocked, making it ideal for building real-time applications like chat servers or streaming services.
+
+	Additionally, Node.js comes with a vast ecosystem of modules through npm (Node Package Manager), which allows you to easily install and manage third-party libraries to extend the functionality of your applications.
+
+	In summary, Node.js enables you to write server-side code in JavaScript, leveraging its event-driven, non-blocking I/O model to build fast, scalable, and efficient network applications.
+
+
+
+php(codeigneter), boostrap(adminlpe)
+
+
+admin lpe 	, hmvc, 

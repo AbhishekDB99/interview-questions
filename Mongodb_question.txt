@@ -1,0 +1,110 @@
+1. what is mongodb (latest 6.0) (used 4.5)
+    - Mongodb is document oriented Nosql database with optional schemas.
+    - Mongodb uses the collections, just like Mysql uses tables.
+    - inside collections we have document.
+    - document consist of key and values.
+    - Mongodb is document oriented Nosql database use for high value of storage. whereas sql is programing language use 
+	to communicate with and manipulate relation database like mysql
+    Advantages:
+        - Mongodb is Schema less database.
+        - there may be difference between number of fields, size and content of the document.
+        - it is easy to scale.
+        - It uses ram to store the data. so is fast to access it.
+        - it support replication. means primary server goes down then secondary server handle the request wothout human interaction.
+        - support nested document so No complex join is require.
+        - rich query language
+        - MongoDB can be used as file storage a using GridFS.
+
+2. datatypes
+    - Number, string, date, boolean, array, embedded documents.
+
+3. Indexing 
+    - indexes are used to process queries more efficiently.
+    - indexing store some information related to a documents so is is easy for mongodb to find right document
+    - without indexing mongodb scan all the documents in a collection and retrive matching document.
+    - db.COLLECTION_NAME.createIndex({KEY:1})
+    - db.NAME_OF_COLLECTION.dropIndex({KEY:1})
+    - db.NAME_OF_COLLECTION.dropIndexes({KEY1:1, KEY2: 1})
+    - db.NAME_OF_COLLECTION.getIndexes()
+
+4. set modifier 
+    - if the value of the field does not exist the set is used to update the document.
+
+5. sharding
+    - sharding is the process of storing the data across multiple machines. it is done by horizontal scalling.
+    - In MongoDB, sharding is achieved by splitting large data sets into small data sets across multiple MongoDB instances
+    - as the size of data increases, a single machine not sufficient to store all the data and not provide accetable read and write operation.
+    - Each MongoDB Database consists of a large number of Collections. Each Collection is made up of a large number of Documents that store data as Key-Value pairs.
+	 MongoDB Sharding breaks up a large Collection into smaller Collections called Shards. Splitting up large Collections into
+         Shards allows MongoDB to execute queries without putting much load on the Server.
+    
+    why sharding
+        - vertical scalling is to expensive and we can increase it to certain limit.
+        - Single replica set has limitation of 12 nodes and only primary nodejs has write access.
+
+6. replication
+    - replication is the method of duplication of data across multilpe servers
+    - In replication each replica set contains one primary and multiple secondary nodes.
+    - the primary node receives all the write operation and record all the changes in data.
+    - then sec nodejs copy and apply the changes in asyncronous manner
+    - if primary node get fails then any one of sec acts as primary node.
+
+    why replication 
+        - High availibility of data
+        - No downtime of maintaince
+
+7. Explain Primary and Secondary Replica Sets
+    -Primary Replica Set receives all the write operations from the clients. Secondary replica sets 
+    replicate the primary replica sets and implement the operations for their datasets so that secondary 
+    datasets affect the primary datasets.
+
+8. GridFS: We use GridFS to retrieve and store large files like images, videos, and audio files
+
+9. What are the aggregate functions of MongoDB
+    - AVG, Sum, Min, Max, First, Push, addToSet, Last
+
+10. Mongodb v/s Mysql
+    - Mongodb is Nosql database and store the data in BJSON document where Mysql is relational database and use tables to store the data
+    - Mongodb has dynamic schema where Mysql has fix schema
+    - Mongodb allows horizontal and vertical scalling where Mysql allows vertical scalling
+    - Mongodb dosent support joons where Mysql supports joins.
+
+11. Why mongodb used
+    - Highly scalability (sharding)
+    - High avalibility (replication)
+    - schema less model
+    - support nested document
+
+12. what is moongoose
+    - Mongoose is object data modelling library. it manage the relation ship between data and provide
+        schema validation
+
+    Advantages
+        - easily changing schemas
+        - data validation
+        - self documentation
+        - 
+
+
+disadvantages of mongodb
+
+can we connect mongodb without mongoose
+
+document size 16 mb
+
+explain storage engine
+
+
+
+* how to create schema in mongoDb ? 
+	- mongoDb is schema less database.
+	- the schema of database is the describe the structure of data to be stored.
+	- mongoDb facilited flaxibility into schema design there by orgenizing storage of data as key and value paire.	
+
+* Difference betwwn mangoDb and sql ?
+
+	- sql structure of data is represented in tabels , mongoDb structure data represented in document.
+	- sql is pre define scema , whereas mongodb id dynamic schema.
+	- sql is vertically scalable, where as mongodb is horizantally and vericalii scalable.
+	- support automic operations for transactions , mongodb no proper support automic for transaction.
+	- support join in operation where as mongodb does not support join operation.

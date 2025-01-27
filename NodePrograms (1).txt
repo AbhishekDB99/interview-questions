@@ -1,0 +1,761 @@
+/*  ******************* remove duplicates from array ************************ */
+
+// let arr = [1, 2, 3, 4, 1, 4, 3]
+
+// let unique = [...new Set(arr)]
+
+// let unique = arr.filter((ele, index) => {
+//     return arr.indexOf(ele) === index
+// })
+
+
+// let unique = []
+    // for(let ele of arr){
+    //     if(!unique.includes(ele)){
+    //         unique.push(ele)
+    //     }
+    // }
+
+
+    // let unique = arr.reduce((acc, current) => {
+    //     if (!acc.includes(cugrrent)){
+    //         acc.push(current)
+    //     }
+    //     return acc
+    // }, [])
+
+
+/*  ******************* print duplicates from array ************************ */
+
+// let arr = [1, 2, 3, 4, 1, 4, 3]
+// let output = arr.filter((ele, index)=>{
+//     return arr.indexOf(ele) !== index
+// })
+
+
+// let duplicates = []
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = 0; j < arr.length; j++) {
+//             if (i !== j && arr[i] == arr[j] && !duplicates.includes(arr[i])) {
+//                 duplicates.push(arr[i])
+//             }
+//         }
+//     }
+
+
+/*  ******************* find second max value in array ************************ */
+
+// let arr = [1, 2, 3, 4, 1, 40, 30];
+
+// let max = 0
+// let secondMax = 0;
+// for (let ele of arr) {
+//     if (ele > max) {
+//         secondMax = max;
+//         max = ele;
+//     }else if(ele > secondMax && ele < max){
+//         secondMax = ele
+//     }
+// }
+
+
+// let unique = [...new Set(arr)]
+// let max = Math.max.apply(null,unique);
+/   / unique.splice(unique.indexOf(max),1)
+// let secondMax = Math.max.apply(null,unique)
+
+
+// arr = arr.sort((a, b) => b - a);
+    // arr = [... new Set(arr)]
+    // let secondMax = arr[1]
+
+
+/*  ******************* find second min value in array ************************ */
+
+// let arr = [1, 2, 3, 4, 1, 40, 30];
+
+// let first = arr[0];
+// let second = arr[1];
+// for(let ele of arr){
+//     if(ele <first){
+//         first = ele
+//     }else if( ele >first && ele < second ){
+//         second = ele
+//     }
+// }
+
+
+// let unique = [...new Set(arr)]
+// let min = Math.min.apply(null,unique);
+// unique.splice(unique.indexOf(min),1)
+// let secondMin = Math.min.apply(null,unique)
+
+
+// arr = arr.sort((a,b)=> a-b)
+// return arr[1]
+
+
+
+/*  ******************* find count of each charecter in string ************************ */
+
+// let str = 'nitin';
+// let arr = str.split('')
+// let uniqueValue = [...new Set(arr)];
+
+// for(let ele of uniqueValue){
+//     let count = str.split(ele).length -1
+//     console.log(`${ele} : ${count}`)
+// }
+
+let str = "rohit bhalchandra metakar";
+
+function characterCount() {
+    let arr = str.split("");
+    let uniq = [...new Set(arr)];
+    let result = {};
+
+    for (let ele of uniq) {
+        let count = str.split(ele).length - 1;
+        result[ele] = count;
+    }
+    return result;
+}
+
+console.log(characterCount());
+
+
+
+
+// let countObj = str.split('').reduce((acc, current) => {
+//     if (acc[current]) {
+//         acc[current] = acc[current] + 1
+//     } else {
+//         acc[current] = 1
+//     }
+//     return acc
+// }, {}    )
+// return countObj;
+
+
+
+/*  ******************* reverse the array ************************ */
+// let arr = [1, 2, 3, 4, 1, 4, 3]
+
+// let leftIndex = 0
+// let rightIndex = arr.length -1;
+// while(leftIndex < rightIndex){
+//     let temp = arr[leftIndex];
+//     arr[leftIndex] = arr[rightIndex]
+//     arr[rightIndex] = temp
+
+//     leftIndex ++
+//     rightIndex --
+// }
+
+
+// let reverse = [];
+// for(let ele of arr){
+//     reverse.unshift(ele)
+// }
+// console.log(reverse)
+
+
+// let middle = Math.floor(arr.length / 2)
+// let arrLength = arr.length
+// for (i = 0; i < middle; i++) {
+//     let temp = arr[i]
+//      arr[i] = arr[arrLength - i -1]
+//     arr[arrLength - i] = temp
+
+// }
+// console.log(arr);
+
+
+/*  ******************* Find two array equal or not ************************ */
+
+// let arr1 = [1, 2, 3, 3, 4]
+// let arr2 = [1, 2, 3, 4, 3]
+
+// let isSame = arr1.length == arr2.length && arr1.every((ele)=>{
+//     if(arr2.indexOf(ele) > -1){
+//         return (ele = arr2[arr2.indexOf(ele)])
+//     }
+// })
+
+
+
+// function arrEqual() {
+//     let isEqual = true
+//     if (arr.length !== arr2.length) {
+//         isEqual = false
+//     } else {
+//         for (let i = 0; i < arr.length; i++) {
+//             if (arr[i] !== arr2[i]) {
+//                 isEqual = false
+//             }
+//         }
+//     }
+//     if (isEqual) {
+//         return "arra is equal";
+//     } else {
+//         return "array is not equal"
+//     }
+// }
+// let arra = arrEqual()
+// console.log(arra);
+
+/*  ******************* Find intersection two array ************************ */
+
+// let arr1 = [1, 2, 3, 3, 4]
+// let arr2 = [1, 2, 3, 4, 3, 6, 33]
+
+// let intrsection = arr1.filter((ele)=>{
+//     return arr2.includes(ele)
+// }) 
+
+
+/*  ******************* Find union two array ************************ */
+
+// let arr1 = [1, 2, 3, 3, 4]
+// let arr2 = [1, 2, 3, 4, 3, 6, 33]
+
+// let union = [ ... new Set([...arr1, ...arr2])]
+
+
+/*  ******************* Reverse a string ************************ */
+
+// let str = 'jjhtdssd';
+
+// let reverse = str.split('').reverse().join('')
+
+// let reverse = ''
+// for (let ele of str) {
+//     reverse = ele + reverse
+// }
+
+
+/*  ******************* Check the string is palindrom or not ************************ */
+
+// let str = 'nitin';
+
+// let reverse = ''
+// for (let ele of str) {
+//     reverse = ele + reverse
+// }
+// if(str === reverse){
+//     console.log('String is Palindrom')
+// }else{
+//     console.log('String is not Palindrom')
+// }
+
+
+// let isPalindrome = str.split('').every((ele,index)=>{
+//     if(ele === str[str.length - index -1]){
+//         return true
+//     }else{
+//         return false
+//     }
+// })
+
+
+/*  ******************* Reverse the integer ************************ */
+
+// let integer = 56
+
+// let reverse = integer.toString().split('').reverse().join('')
+// reverse = parseInt(reverse)* Math.sign(integer)
+
+
+
+/*  ******************* Add element to array in perticular position ************************ */
+
+// let arr = [10, 3, 26, 44, 59, 9];
+// let newEle = 889
+// let pos = 2
+
+// for (let i = arr.length - 1; i >= 0; i--) {
+//     if (i >= pos) {
+//         arr[i + 1] = arr[i]
+//         if (i == pos) {
+//             arr[i] = newEle
+//         }
+//     }
+// }
+
+// arr.splice(pos, 0, newEle);
+
+
+
+
+/*  ******************* Delete element to array in perticular position ************************ */
+
+// let arr = [10, 3, 26, 44, 59, 9];
+// let pos = 2
+    
+// for (let i = pos; i < arr.length - 1; i++) {
+//     arr[i] = arr[i + 1]
+// }
+// arr.pop()
+
+
+
+/*  ******************* Merge Two array ************************ */
+
+// let arr1 = [23, 4, 33, 56, 8, 21]
+// let arr2 = [54, 33, 9, 67, 92]
+// let arr3 = [];
+
+// for (let i = 0; i < arr1.length; i++) {
+//     arr3[i] = arr1[i]
+// }
+
+// for (let  j= 0; j < arr2.length; j++) {
+//     arr3[arr1.length + j] = arr2[j]
+// }
+
+
+
+
+// let data1 = [3, 7, 12, 34, 56, 90]
+// let data2 = [4, 9, 25, 45]
+// let data3 = [];
+// let d1 = 0
+// let d2 = 0
+// let d3 = 0
+
+// while (d1 < data1.length && d2 < data2.length) {
+//     if (data1[d1] < data2[d2]) {
+//         data3[d3] = data1[d1];
+//         d1++;
+//     } else {
+//         data3[d3] = data2[d2];
+//         d2++;
+//     }
+//     d3++
+// }
+
+// while (d1 < data1.length) {
+//     data3[d3] = data1[d1];
+//     d1++;
+//     d3++;
+// }
+
+
+
+
+/*  ******************* Array flat method implementation ************************ */
+
+// let arr = [1, 2, [3, 4, [5, 6, [7, [8, 9]]]]]
+// function flatten(arr){
+//     let newArr = arr.reduce((acc, item) => {
+//         if (Array.isArray(item)) {
+//             acc = acc.concat(flatten(item))
+//         } else {
+//             acc.push(item)
+//         }
+//         return acc
+//     }, [])
+
+//     return newArr
+// }
+// let result = flatten(arr)
+
+
+// let arr = [1, 2, [3, 4, [5, 6, [7, [8, 9]]]]]
+// let deep = 2
+// function flatten (arr,deep){
+//     let output =[]
+//     for(ele of arr){
+//         if(Array.isArray(ele) && deep){
+//             output =  output.concat(flatten(ele,deep -1))
+//         }else{
+//             output.push(ele)
+//         }
+//     }
+//     return output
+// }
+
+// let result = flatten(arr,deep)
+
+
+/*  ******************* Count Distinct element in every k size window ************************ */
+
+// let arr = [5, 4, 1, 1, 3, 4, 1, 4, 5, 5]
+// let ele = 3
+
+// for (let i = 0; i < arr.length; i++) {
+//     let count = [... new Set(arr.slice(i, ele + i))].length 
+//     console.log(count);
+// }
+
+
+/*  ******************* Program to find a missing number in an integer array ************************ */
+
+// let arr = [1, 2, 4, 5]
+// let len = arr.length + 1
+
+// let sum1 = (len * (len + 1)) / 2
+// let sum2 = 0
+// for (let i = 0; i < arr.length; i++) {
+//     sum2 = sum2 + arr[i]
+// }
+// let missingNum = sum1 - sum2
+
+
+
+/*  ******************* Program to find continuous sub array whose sum is equal to a given number ************************ */
+
+// let arr = [5, 4, 1, 2, 3, 4, 1, 4, 5, 5]
+// let ele = 10
+// for (let i = 0; i < arr.length; i++) {
+//     let sum = 0;
+//     for (let j = i; j < arr.length; j++) {
+//         sum = sum + arr[j];
+//         if (sum == ele) {
+//             console.log(arr.slice(i, j + 1));
+//         }
+//     }
+// }
+
+
+
+/*  ******************* Maximum consecutive one’s (or zeros) in a array ************************ */
+
+// let arr = [1, 0, 0, 1, 1, 1, 0, 1, 1,1,1]
+// let maxOneCount = 0;
+// for (let i = 0; i < arr.length; i++) {
+//     oneCount = 0;
+//     for (let j = i; j < arr.length; j++) {
+//         if (arr[j] == 1) {
+//             oneCount = oneCount + 1;
+//         } else {
+//             break;
+//         }
+//     }
+//     if(oneCount > maxOneCount){
+//         maxOneCount = oneCount;
+//     }
+// }
+
+
+
+// let arr = [1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1]
+// let maxOneCount = 0;
+// let leftIndex = 0
+
+// while (leftIndex < arr.length) {
+//     if (arr[leftIndex] == 0) {
+//         leftIndex = leftIndex + 1;
+//     } else {
+//         let rightIndex = leftIndex;
+//         while (rightIndex < arr.length - 1 && arr[rightIndex + 1] == 1) {
+//             rightIndex = rightIndex + 1;
+//         }
+
+//         if ((rightIndex - leftIndex + 1) > maxOneCount) {
+//             maxOneCount = rightIndex - leftIndex + 1;
+//         }
+//         leftIndex = rightIndex + 1;
+
+//     }
+// }
+
+
+/*  ******************* Pair of index whose sum are matched with given number ************************ */
+
+// let arr = [15, 12, 4, 16, 9, 8, 24, 0]
+// let ele = 24
+// for (let i = 0; i < arr.length; i++) {
+//     for (let j = i; j < arr.length; j++) {
+//         if (i !== j && arr[i] + arr[j] == 24) {
+//             console.log(i + ' ' + j)
+//         }
+//     }
+// }
+
+
+
+/*  ******************* Find diplicate elements from array ************************ */
+
+// let arr = [10, 2, 3, 2, 40, 10]
+// let isDuplicate = [];
+// for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//         if(i !== j && arr[i] == arr[j] && !isDuplicate.includes(arr[j])){
+//             isDuplicate.push(arr[j])
+//         }
+//     }
+// }
+
+
+
+/*  ******************* Check array contains duplicate elements ************************ */
+
+// let arr = [10,2,3,2,40,10]
+// let duplicate = arr.some((ele,index)=> arr.indexOf(ele) !== index)
+
+
+
+/*  ******************* Convert array into Mutidimentional array ************************ */
+
+// function multiArray(arr, size) {
+//     let result = []
+//     let inc = -1
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (i % size == 0) {
+//             inc++
+//             result[inc] = []
+//         }
+//         result[inc].push(arr[i])
+//     }
+
+//     return result
+// }
+// let result = multiArray([1, 2, 3, 4, 5, 6], 2)
+
+
+
+// const arr = [1, 2, 3, 4, 5, 6];
+// let size = 7
+
+// const newArr = [];
+// while (arr.length) {
+//     newArr.push(arr.splice(0, size))
+// }
+
+
+
+// *************Print all the Persons Name whose age is 18 or above 18 Years.*******************
+// Expected Ouput - ["Rahul", "Rahul", "Brijesh", "Vedant"]
+
+// const Persons = {
+//  Rahul: 18,
+//  Raj: 25,
+//  Kunal: 9,
+//  Ketan: 10,
+//  Vedant: 78,
+//  Brijesh: 56,
+// };
+
+// let persons2 = []
+// for(let ele in persons){
+//     if(persons[ele]>=18){
+//         persons2.push(ele)
+//     }
+// }
+//         console.log(persons2)
+
+
+
+// let obj = {'count' : 23, 'count2' : 43}
+
+// let num = 22
+// obj['count2']=22
+// console.log(obj)
+
+
+//***********sort array without method******//
+
+let arr = [7,6,5,4,3,2,1,23,0]
+let temp = 0
+for(let i=0;i<arr.length;i++){
+    for(let j=i;j<arr.length;j++){
+     if(arr[i]>arr[j]){
+        temp=arr[i]
+        arr[i]=arr[j]
+        arr[j]=temp
+    }
+    }
+}
+console.log(arr)
+
+//*****************array ele addition************//
+
+let arr = [1,2,3,4,5]
+
+let arr2 =[]
+let temp = 0
+for(let i=0;i<arr.length;i++){
+    temp += arr[i]
+    arr2.push(temp)
+}
+console.log(arr2)
+
+
+//***********array sort**********//
+let arr = [1,3,4,2,66,7,7]
+
+let arr2 = []
+let temp;
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+        if (arr[j] > arr[j + 1]) {
+            temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+        }
+    }
+}
+
+
+
+for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[i]) {
+            // Swap elements
+             let temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    }
+}
+
+console.log(arr);
+
+*****************************sum of 14 in array************
+let arr = [10,4,1,2,8,6,0,23,12,20,-6]
+
+let arr2 = []
+for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+        if(arr[i]+arr[j] ===14){
+            arr2.push(arr[i])
+            arr2.push(arr[j])
+        }
+    }
+}
+console.log(arr2)    
+
+******************obj key count***************
+let obj = [{"rohit" : 12, "shubh":2, "rahul":22},
+    {"rohit" : 2, "shubh":10, "rahul":4},{"rohit" : 0, "shubh":5, "rahul":10},{"rohit" : 4, "shubh":1, "rahul":1}]
+
+    function objCount(){
+        let obj2 = {}
+        for(let ele in obj){
+            for(ele2 in obj[ele]){
+                if(obj2[ele2]){
+                    obj2[ele2]+= obj[ele][ele2] 
+                }else{
+                    obj2[ele2] = obj[ele][ele2]
+                }
+            }
+        }
+        return obj2
+    }
+
+    let obj3 = objCount()
+
+    console.log(obj3);
+********************************************************
+let str = "ROHITmetakar"
+let str2 = ""
+let arr = str.split("")
+for(let i=0;i<arr.length;i++){
+    if(i%2===0){
+        str2 += arr[i].toUpperCase()
+    }else{
+        str2 += arr[i].toLowerCase()
+    }
+}
+console.log(str2)
+******************************************************
+let stud = [{name : "rohit" ,id: 1 },{name : "rahul" ,id: 2 },{name : "jayesh", id: 3}]
+let info = [{dept : "node" , id : 1},{dept : "java" , id : 2},{dept : "python" , id : 3}]
+
+let infoMap = {}
+info.forEach(ele =>{
+    infoMap[ele.id] = ele.dept
+})
+console.log(infoMap)
+
+let result = stud.map(ele1 =>({
+    name : ele1.name,
+    dept : infoMap[ele1.id]
+}))
+
+console.log(result)
+
+//output : 
+    [
+  { name: 'rohit', dept: 'node' },
+  { name: 'rahul', dept: 'java' },
+  { name: 'jayesh', dept: 'python' }
+]
+
+**********************count vowels in string*********************
+let str = 'rohit metakar'
+
+let vowels = 'aeiouAEIOU'
+let count = 0;
+for(let ele of str){
+    // console.log(ele)
+    if(vowels.includes(ele)){
+        // console.log(vowels.includes(ele))
+        count++
+    }
+}
+
+console.log(count)
+
+************************ find duplicate object****************
+let obj = [{ name: "rohit", lname: "shimpi" },
+    { name: "rahul", lname: "sal" },
+    { name: "aaaa", lname: "ccc" },
+    { name: "rohit", lname: "shimpi" }]
+
+
+    function duplicate(){
+        let result = []
+        isDup = false
+        for(let i=0;i<obj.length;i++){
+            for(let j=0;j<result.length;j++){
+                if(obj[i].name === result[j].name){
+                    isDup = true;
+                    break
+                }
+            }
+            if(!isDup){
+                result.push(obj[i])
+            }
+        }
+
+        return result
+    }
+
+    let dupobj = duplicate()
+    console.log(dupobj)
+
+************************************************************
+let str = 'rohitmetakar'
+
+let str2 = ''
+
+for(let i=0;i<str.length;i++){
+    if(i%2==0){
+        str2 += str[i].toUpperCase()
+    }else{
+        str2 += str[i].toLowerCase()
+    }
+
+}
+console.log(str2)
+
+*******************find average and closest number in array*******************
+let arr = [23,1,34,2,12, 14]
+
+let sum = 0
+for(let i=0;i<arr.length;i++){
+    sum +=arr[i]
+}
+avg = sum/ arr.length
+let closest = arr[0]
+let mindiff = Math.abs(arr[0]- avg)
+for(let i=1;i<arr.length;i++){
+    diff = math.abs(arr[i]-avg)
+
+    if(diff < mindiff){
+        closest = arr[i]
+    }
+}

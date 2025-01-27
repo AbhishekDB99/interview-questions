@@ -1,0 +1,50 @@
+1. Explain error handling in Web API.. 
+2. What are main return types supported in Web API? 
+3. JWT token API? 
+4. Web API supports which protocol?-wrong ans 
+5 .string and string builder. 
+6. ReadOnly and constant. 
+7. static constructor and normal constructor . 
+8. Solid-principle-fair enough 
+9. temporary table. UNION & UNION ALL.
+10. What is the difference between COMMIT and ROLLBACK?. 
+11. How to delete duplicate rows in SQL Server? 
+12. types MVC routing concep 
+13. Session Management. 
+14. UNION 
+15. What are the different return types of a controller Action method?. 
+16. ActionResult and ViewResult.    
+17 .What is Minification and Bundling?. 
+18. What is Run(), Use() and Map() method?- 
+19. What is difference between middleware and filters in .NET Core?. 
+20. Dependency Injection. 
+21. Describe the Service Lifetimes. 
+22. benefits of MVC 
+23. what is dependency injection? 
+24. how to implement DI in .net core 
+25. design patterns? 
+26. solid principles 
+27. filter 
+28. authrorzation: 
+29. JWT 
+30. empid emp name mgrid salary Write an SQL query to find employees who earn more than their managers.
+31. what is the difference between scoped , transient , singleton? 
+32. Describe the Service Lifetimes 
+33. What is boxing and unboxing in .NET? 
+34. How ReadOnly is it different from Static ReadOnly? 
+35. view bag,view data and tempdata 
+36. peak vs keep in tempdata 
+37. How do you implement caching in ASP.NET Core 
+38. clustered and non clustered index- Query optimizations 
+39. structure and class bulk records 
+40. WHAT IS OOPS, 
+41. VIRTUAL FUNCTION, 
+42. DELEGATE,REFLECTION, 
+43. CONSTRUCTOR ROUTING, 
+44. TYPES OF ROUTING, 
+45. KEYWORD FOR ATTRIBUTE ROUTING FILTERS, 
+46. DIFF B/W AUTHENTICATION & AUTHORISATION, 
+47. AJAX,VIEWBAG & VIEWDATA(WHICH ONE IS DYNAMIC & WHICH ONE REQ TYPECASTING) 
+48. DIFF B/W TEXTBOX & TEXTBOXFOR 
+49. WHAT ARE METAPACKAGES? 
+50. ADVANTAGES OF .NET CORE?

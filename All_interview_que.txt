@@ -1,0 +1,178 @@
+1. Promises and error handling :
+
+		- A promises are handle theasynchronus operation in javascript, promise are represent the value are available now or in future.
+		- It is Super set of callback. 
+		- Promises has 3 state :
+			1. resolve, 
+			2.reject, 
+			3.pendding.
+		- promises are handle any successfull message using .then() and handle any error message using .catch()
+		- It improve the code readability.
+
+		Ex : function fatchData(){
+		return new Promise((resolve, reject)=>{
+		setTimeout(()=>{
+			let data = {apple:12, banana:23}
+			let success = true
+			     if(success){
+			            resolve(data)
+			        }else{
+		               	reject("faild : ")
+			        }
+		        },2000)
+	    	})
+		}
+		fatchData().then((data)=>{
+		     console.log("sucess", data)
+		}).catch((err)=>{
+		console.log("error")
+		})
+
+
+2. Promose.all, Promise.allSettled, Promise.race, Promise.any,
+	1. Promise.all : 
+	   - Promise.all resolve only when all promise get resolve If any one get faild then it reject the all promise.
+	2. Promis.allSettled:
+	   - It is always resolve the array having info about each promises if promise get resolve or reject.
+	3.   
+
+3. undefined vs null
+		undefined : A variable can declared but it does not have assign any value.
+		null : It is assignment value, A variable has declared veriable but its assign value as null. 
+
+4. custom errors using classes,
+
+5. new Map(), new Set()  
+6. Second highest salary query :
+
+	- select max(age) from Customers where age < (SElect max(age) from Customers)
+
+7. MySQL vs Postgres
+8. sql rank() function
+9. clousers :
+ 	-closure function is access to outer function variable.
+ 	- Closure is hiding the implimentaion in javascript code and create private variable and function.
+ 	- it achive the encapsulation method.
+
+ 	EX:
+ 		function crateCounter(){
+    		let count = 33
+    
+    	function increment(){ 
+        	count += 1
+       		return count
+   		 }
+     	return increment;
+	}
+
+	let counter = crateCounter()
+	console.log(counter())
+
+10. event loop :
+	- NodeJs is single thread even driven platform that perforn non-blocking I/P operation, asynchronus operations.
+	- Every req are come into event loop and it recive the req and process them and then sleep until recice more req.
+	- event loop are work in queue manner. and it allow to use callback and promises 
+
+	Ex: 
+		console.log("strat")
+			setTimeout(()=>{
+    			console.log("middle")
+			},2000)
+		console.log("end")
+
+
+11. child processes : 
+12. cluster module :
+
+13. What is hoisting : 
+		- A variable and function can be declaration as moved to top of it scop during the compilation.
+		EX.:
+			console.log(host)
+			var host = "first"
+
+			hoisting()
+			function hoisting(){
+    			console.log("second")
+			}
+
+14. temporal dead zone
+
+15. What is node js
+
+	- Node js cross platform javascript run time enviroment.
+	- it use to create server side application.
+	- it is buid on chrom V8 javascript engine.
+	- it use in video streamnig application, network application,
+	- it allow javascript to run server
+
+16. What are differences between map and foreach
+	1.map:
+		- map is use to create new array, and it iterate the all element in array.
+		- it create new array by calling the function for every element in array.
+		- map create new array so we can use reduce(), filter(), sort() 
+		Syntax : 
+			arr.map(index, currentValue, arr)={}
+		Eg: 
+			let arr = [2,3,4,5]
+			let arr2 = arr.map((ele)=>{
+    		return ele*ele
+			})
+			console.log(arr2)   	
+	2. forEach:
+		- foreach can return undefine and it execute the provided function for each element.
+		- it does not retrun new aaray and it does not mutet the array
+		Syntax : 
+			arr.forEach(callback(currentValue, index, arr), thisArg) 
+		Eg : 
+			let arr = [2,3,4,5]
+			arr.forEach(function(num){
+    			console.log(num)
+			})
+What are differences between slice and splice
+
+What is event loop
+What is asynchronous
+Some technical questions in hoisting
+What is event bubbling
+What is clouser
+How to exceptions are handled in NodeJS
+- What is multer
+- Explain closures
+- What are event emitters in Node JS
+- What methods or functions are present in Node JS
+- Difference between git pull and git fetch
+- What is setInterval
+- Difference between == & === in JS
+1.sharding in mongodb
+2. Lookup in mongodb.
+3.split method in array.
+4. One coding question.
+5.cluster in node js.
+6.spread and rest
+7.Es6 features
+8.promise related question
+9 node js working.
+promise
+promise.all
+promise.allsettled
+hoistting
+closures
+mongodb aggreation queries(lookup and project)
+event loop
+queue and stack
+cluster in mongodb
+splice method
+reduce method
+
+And some js program question
+sort the array
+output questions
+1. lookup what are four terms used in lookup
+2. how to remove duplicacy in array 
+3. Write query in mongodb make status retire if age is greater than 60
+4. ”oneMantwoManthreeMan” remove Man with Woman in given string
+5. reduce
+6. splice
+7. hoisting example with code 
+8. closure example with code
+9. event loop explain or how nodejs works

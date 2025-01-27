@@ -1,0 +1,68 @@
+﻿
+1. What is Angular? / What do you know about Angular?
+
+    -It is an open-source front-end web framework based on TypeScript.
+    -It is create Single Page applications
+    -It is easy to build applications within the web/mobile/desktop. 
+    -Angular is one of the most popular JavaScript frameworks developed and maintained by Google.
+    -The major features of this framework such as declarative templates, dependency injection, end to end tooling, and many more other features are used to easy the development.
+    -It is most suited for developing enterprise web applications because its code is reusable and maintainable.
+    Angular integrates some powerful features like 
+    declarative templates, 
+    end to end tooling, 
+    dependency injection
+
+3) What is the main purpose of Angular ?
+    -The main purpose of using Angular is to create fast, dynamic and scalable web applications. 
+    -We can create these applications very easily with Angular using components and directives.
+    -Angular was started as a SPA (Single-Page-Application) framework, and now it supports dynamic content based on different users through dependency injection. 
+    -It provides a platform for easy development of web-based applications and empowers the front end developers in curating cross-platform applications. 
+    -YouTubeTV is the most popular example that uses Angular.
+
+4) What are the biggest advantages of using Angular ?
+    ●	Angular supports two-way data-binding.
+    ●	It follows MVC pattern architecture.
+    ●	It supports static templates and Angular template.
+    ●	It facilitates you to add a custom directive.
+    ●	It also supports RESTfull services.
+    ●	Validations are supported in Angular.
+    ●	Angular provides client and server communication.
+    ●	It provides support for dependency injection.
+    ●	It provides powerful features like Event Handlers, Animation, etc.
+
+5) What is angular Directives ?
+
+    - Angular directives are used to extend the power of the HTML by giving it new syntax.
+    - Each directive has a name — either one from the Angular predefined like ng-repeat, or a custom one which can be called anything.
+    - There are three kinds of directives in Angular :
+    1. Components : Directives with a template. Components are the most common of the three directives.
+    2. Structural directives : Change the DOM layout by adding and removing DOM elements.
+    Structural Directives change the structure of the view.NgFor, NgIf, NgSwitch are the examples of structural directive.
+    3. Attribute directives : Change the appearance or behavior of an element, component, or another directive.
+    Attribute directives are used as attributes of elements.
+    The built-in NgStyle directive is the example of Attribute directive.
+
+5) When the Angular components are created, they enter their lifecycle and remain when they are destroyed.
+ 
+    - Angular Lifecycle hooks are used to check the phases and trigger changes at specific phases during the entire duration.
+
+    - ngOnChanges(): This method is called when one or more input properties of the component are changed. The hook receives a SimpleChanges object containing the previous and current values of the property.
+
+    - ngOnInit(): This is the second lifecycle hook. It is called once, after the ngOnChanges hook. It is used to initialize the component and sets the input properties of the component.
+
+    - ngDoCheck( ): This hook is called after ngOnChanges and ngOnInit and is used to detect and act on changes that Angular cannot detect. In this hook, we can implement our change detection algorithm.
+
+    - ngAfterContentInit( ): This hook is called after the first ngDoCheck hook. This hook responds after the content gets projected inside the component.
+
+    - ngAfterContentChecked( ): This hook is called after ngAfterContentInit and every subsequent ngDoCheck. It responds after the projected content is checked.
+
+    - ngAfterViewInit( ): This hook is called after a component's view or initializing a child component's view.
+
+    - ngAfterViewChecked( ): This hook is called after ngAfterViewInit. It responds after the component's view or when the child component's view is checked.
+
+    - ngOnDestroy( ): This hook is called just before Angular destroys the component. This is used to clean up the code and detach event handlers.
+    
+6)  what is Git and gitHub
+    - Git: Git is a distributed version control system for tracking changes in source code during software  development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. Its goals include speed, data integrity, and support for distributed, non-linear workflows. 
+    - GitHub: GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features. 
+

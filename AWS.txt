@@ -1,0 +1,57 @@
+
+AWS S3 (Amazon Web Services) (Simple Storage Service) :
+S3 is a scalable object storage service designed to store and retrieve any amount of data from anywhere on the web.
+It provides highly durable and available storage infrastructure, ideal for hosting static websites, storing backups, or serving as a data lake.
+Example: You can upload files such as images, videos, documents, etc., to an S3 bucket and make them accessible over the internet.
+
+npm install aws-sdk
+
+const AWS = require('aws-sdk');
+
+// Configure the AWS region
+AWS.config.update({
+    region: 'us-west-2', // Replace with your desired region
+    // Optionally, you can configure credentials if not using IAM roles
+    accessKeyId: 'YOUR_ACCESS_KEY_ID', // Replace with your AWS access key ID
+    secretAccessKey: 'YOUR_SECRET_ACCESS_KEY', // Replace with your AWS secret access key
+});
+
+AWS Lambda:
+Lambda is a serverless compute service that allows you to run code without provisioning or managing servers.
+You upload your code, and Lambda automatically scales and manages the execution of your code in response to triggers.
+Example: You can use Lambda to process S3 events, such as image resizing when a new image is uploaded to an S3 bucket. 
+The Lambda function will trigger automatically whenever a new file is added to the bucket.
+
+Integration:
+Whenever a user uploads an image to "my-bucket", S3 triggers the Lambda function.
+The Lambda function executes the code to resize the image and stores the thumbnail back into the S3 bucket.
+This way, you utilize the scalability and flexibility of S3 for storage, and the event-driven, serverless nature of Lambda for processing tasks like image resizing.
+
+
+Step of Project deploymet process
+	
+Prepare your project:
+	Ensure your project is hosted on GitLab and is ready for deployment. 
+    Make sure your project includes all necessary files, dependencies, and configurations.
+
+	Set up AWS EC2 instance:
+	Launch an EC2 instance on AWS. 
+    Choose an appropriate instance type, configure security groups, and ensure that you have SSH access to the instance.
+
+	Install necessary plugins in Jenkins:
+	Once Jenkins is installed, access its web interface and install the necessary plugins. 
+    Key plugins include GitLab Integration, Pipeline, SSH Agent, AWS SDK, etc.
+
+	Set up AWS IAM roles:
+	Create IAM roles with appropriate permissions for Jenkins to access AWS services like EC2, S3, and IAM. Attach these roles to the Jenkins instance or configure them in Jenkins pipeline scripts.
+
+	Test the deployment process:
+	Test your Jenkins pipeline to ensure that it clones the project, builds it successfully, and deploys it to the EC2 instance without errors. Fix any issues or errors that arise during testing.
+
+	Monitor and troubleshoot:
+	Set up monitoring and logging for your deployed application to track its performance and identify any issues. Use AWS CloudWatch or other monitoring tools to monitor server metrics, application logs, and error rates.
+
+	Implement continuous integration and deployment (CI/CD):
+	Once your deployment process is working smoothly, consider implementing CI/CD practices to automate the delivery of new features and updates to your project.
+
+

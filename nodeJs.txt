@@ -1,0 +1,612 @@
+What is Node.js?
+
+Node js is an open source, cross-platform javascript runtime environment.
+It is used to create server side applications.
+Node js run the v8 javascript engine.
+Node js allows you to run javascript on the server.
+
+It use in video streaming sites, also developing - Real Time web application,  n/w application, General purpose application, Distributed system.
+
+Features of Node.js.
+●	Asynchronous and Event Driven − 
+	All APIs of Node.js library are asynchronous, that is, non-blocking. 
+	It essentially means a Node.js based server never waits for an API to return data. 
+	The server moves to the next API after calling it and a notification mechanism of Events of Node.js helps the server to get a response from the previous API call.
+●	Very Fast − 
+	Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
+●	Single Threaded but Highly Scalable − 
+	Node.js uses a single threaded model with event looping. 
+	Event mechanism helps the server to respond in a non-blocking way and makes the server highly scalable. 
+	It uses an infinite loop to receive requests & process them.
+●	No Buffering − 
+	Node.js applications never buffer any data. 
+	These applications simply output the data in chunks.
+●	License − 
+	Node.js is released under the MIT license
+
+What is single threaded?
+Computing the execution of the entire task from beginning to end without interruption.
+ 
+Why single threaded?
+Node js is single threaded for asynchronous processing.
+It uses an infinite loop to receive requests & process them.
+
+Modules :-
+It includes a set of functions.
+To include modules in node js application use the require() function with the parentheses containing the module name.
+
+Which can be reused throughout the node js application.
+Module same as javascript libraries.
+Modules are of three typed :-
+1)	Core Module :-
+	- These are built-in modules that come pre-installed with Node.js. 
+	- Core modules provide essential functionalities for various tasks such as file I/O operations, networking
+	Ex.-  fs,http,os,path
+2)	Local Module :-
+	- These are modules created by developers for specific functionalities within their Node.js applications.
+	Ex.- const myModule = require('./myModule');
+3)	Third-Party Module :-
+	- These are modules developed by third-party developers and made available for use in Node.js applications through package managers like npm (Node Package Manager).
+	Ex.- npm install express
+		const express = require('express');
+
+The module.exports in Node.js is used to export any literal, function or object as a module. 
+It is used to include JavaScript file into node.js applications. 
+The module is similar to variable that is used to represent the current module and exports is an object that is exposed as a module.
+
+Syntax:
+●	module.exports = literal | function | object
+
+First-class Function
+when functions in that language are treated like any other variable. 
+For example - a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable.
+
+function sayHello() {
+  return "Hello, ";
+}
+function greeting(helloMessage, name) {
+	
+  console.log(helloMessage() + name);
+}
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!");
+// Hello, JavaScript!
+		
+Callback :-
+	- Callback is a function pass as an argument to another function.
+	
+what is callback function.
+	A callback function is a common and essential feature of node.js. 
+	It is used extensively in JavaScript libraries and frameworks. 
+	They are used both in asynchronous and synchronous programming.
+	Callback functions are possible in JavaScript because of their first-class citizen treatment to functions in it.
+
+Topics to be covered with examples are:
+	1. Named function passed as a callback.
+	2. Anonymous callback function.
+	3. Synchronous and Asynchronous callback function.
+	4. Create a function that accepts the callback function as an argument.
+
+what is callback hell.
+  - callback is a function pass as an argument to another function.
+	- This is a big issue caused by coding with complex nested callbacks.
+	- Here each & every callback takes an argument that is a result of the previous callback.
+	- In this manner, the code structure looks like a pyramid, making it difficult to read & maintain.
+	- Also, if there is an error in one function, then all other functions get affected.
+
+How to avoid callback hell :-
+	- We can avoid callback hell with the help of a promise.
+	- Promises in javascript are a way to handle asynchronous operation in node js.
+	- When we return something from an asynchronous method it returns a promise which can be used to consume the final value when it is available in the future with the help of then() method or await inside of the async function.
+
+9. what is promises
+		- Promise is an object representing intermediate state of operation which is guaranteed to complete its execution at some point in future.
+		- Promise has 3 states – resolved, rejected and pending.	
+		- Error handling is done using .then() and .catch() methods.	
+		- Promise chains can become difficult to understand sometimes.
+
+		- Allows to work with asynchronous operations by chaining .then() and .catch() methods to handle success and error cases.
+
+    - Improves the code redability
+    - Better handaling on asyncronous operation
+    - Better error handaling
+
+10. async await
+		- Async/Await is a syntactic sugar for promises, a wrapper making the code execute more synchronously.  
+		- It does not have any states. It returns a promise either resolved or rejected.
+		- Error handling is done using .try() and .catch() methods.
+		- Using Async/Await makes it easier to read and understand the flow of the program as compared to promise chains.   
+
+		- The async keyword is used to define a function as asynchronous.
+		- An async function always returns a promise.
+		- The await keyword can only be used inside an async function.
+		- await means to wait until the promise get resolved or reject.
+
+		- The ‘await’ keyword, exclusive to async functions, pauses execution until the awaited promise resolves or rejects.
+
+24. promises.all v/s promises.allSettled 
+    promise.all - it resolve only when all the promise get resolve if any one get fails then it reject the promise
+    promise.allSettled - this will always resolve with an array having info of each promises having resolve or reject. 
+    promise.race - it allows to race multiple promises against each other, returning the value of the first promise that resolves or rejects. 
+ 
+Express.js -
+	- Express JS is a framework that works on top of Node web server functionality.
+	- It simplify its APIs and add helpful new features. 
+	- It makes it easier to organize application’s functionality with middleware and routing. 
+	- It helps Node to handling routes, requests, and responses, making it easier to create robust and scalable applications. 
+	- As it is very flexible, lightweight and easy to learn and contains action of middleware option making it an excellent choice to learn and use Express in application.
+
+body-parser :- 
+	body-parser is a middleware for handling HTTP POST request data in Express.js, a web application framework for Node.js. 
+	It's used to extract the body portion of an incoming request and exposes it on req.body as something easier to interface with. 
+
+Middleware :-
+	-	Middleware is used for handling the different routing of the webpage and it works between the request and response cycle. 
+	- Middleware gets executed after the server receives the request and before the controller actions send the response. 
+	- Middleware has access to the request object, responses object, and next, it can process the request before the server sends a response. 
+
+An Express-based application is a series of middleware function calls.
+
+Middleware functions can perform the following tasks:
+●	Execute any code.
+●	Make changes to the request and the response objects.
+●	End the request-response cycle.             
+●	Call the next middleware in the stack.
+
+Advantages of using middleware:
+●	Middleware can process request objects multiple times before the server works for that request.
+●	Middleware can be used to add logging and authentication functionality.
+●	Middleware improves client-side rendering performance.
+●	Middleware is used for setting some specific HTTP headers.
+●	Middleware helps for Optimization and better performance.
+
+Middleware Chaining: 
+	- Middleware can be chained from one to another, Hence creating a chain of functions that are executed in order. 
+	- The last function sends the response back to the browser So, before sending the response back to the browser the different middleware processes the request.
+	- The next() function in the express is responsible for calling the next middleware function if there is one.
+
+Syntax :-
+app.get(path, (req, res, next) => {}, (req, res) => {})
+
+Event Loop :-
+	- Node.js is a single-threaded event-driven platform that is capable of running non-blocking, asynchronous programming. 
+	- These functionalities of Node.js make it memory efficient. 
+	- The event loop allows Node.js to perform non-blocking I/O operations 
+	
+	Features of Event Loop:
+	● Event loop is an endless loop, which waits for tasks, executes them and then sleeps until it receives more tasks.
+	● The event loop executes tasks from the event queue only when the call stack is empty i.e. there is no ongoing task.
+	● The event loop allows us to use callbacks and promises.
+
+Event Driven :-
+	- Node.js makes extensive use of events which is one of the reasons behind its speed when compared to other similar technologies. 
+	- Once we start a Node.js server, it initializes the variables and functions and then listens for the occurrence of an event.
+	- Event-driven programming is used to synchronize the occurrence of multiple events and to make the program as simple as possible. 
+	- The basic components of an Event-Driven Program are:
+	●	A callback function ( called an event handler) is called when an event is triggered.
+	●	An event loop that listens for event triggers and calls the corresponding event handler for that event.
+
+Event Emitter :-
+	- Node.js uses an events module to create and handle custom events.
+	- EventEmiiter class can be used to create & handle custom event modules.
+	- The event emitter is a node module that allows objects to communicate with one another.
+	- The core of Node’s asynchronous event driven architecture is EventEmitter.
+	- Emitter objects send out named events which trigger listeners that have already been registered.
+	- Hence, an emitter object has to two key characteristics:-
+		●	Emitting name events
+		●	Registering & unregistering listener functions.
+
+var	let	const
+The scope of a var variable is functional scope.	The scope of a let variable is block scope.	The scope of a const variable is block scope.
+It can be updated and re-declared into the scope.	It can be updated but cannot be redeclared into the scope.	It cannot be updated or re-declared into the scope.
+It can be declared without initialization.	It can be declared without initialization.	It cannot be declared without initialization.
+It can be accessed without initialization as its default value is “undefined”.	It cannot be accessed without initialization, as it returns an error.	It cannot be accessed without initialization, as it cannot be declared without initialization.
+
+Streams are a type of data-handling methods and are used to read or write input into output sequentially.
+Streams are used to handle reading/writing files or exchanging information in an efficient way.
+
+Types of Streams in Node.js: 
+There are namely four types of streams in Node.js.
+1.	Writable: We can write data to these streams. Example: fs.createWriteStream().
+2.	Readable: We can read data from these streams. Example: fs.createReadStream().
+3.	Duplex: Streams that are both Writable as well as Readable. Example: net.socket.
+4.	Transform: Streams that can modify or transform the data as it is written and read. Example: zlib.createDeflate.
+
+Some Node APIs that uses streams are:
+●	net.Socket()
+●	process.stdin()
+●	process.stdout()
+●	process.stderr()
+●	fs.createReadStream() 
+●	fs.createWriteStream() 
+●	net.connect() 
+●	http.request() 
+●	zlib.createGzip() 
+●	zlib.createGunzip() 
+●	zlib.createDeflate() 
+●	zlib.createInflate() 
+
+What is a route in node JS? 
+	- Routing defines the way in which the client requests are handled by the application endpoints. 
+	- A route is a section of Express code that associates an HTTP verb ( GET , POST , PUT , DELETE , etc.), a URL path/pattern, and a function that is called to handle that pattern. 
+
+REST stands for REpresentational State Transfer. 
+Rest is an architectural style for creating websites using the HTTP protocol. 
+Following four HTTP methods are commonly used in REST based architecture. 
+	GET 
+	POST 
+	PUT 
+	DELETE 
+
+Restfull API :-
+The API (Application Programming Interface) is a set of commands, functions, or protocols that act as an intermediary that enables two applications to communicate.
+
+RESTful Web Services
+Web services based on REST Architecture are known as RESTful web services. 
+These webservices uses HTTP methods to implement the concept of REST architecture. 
+A RESTful web service usually defines a URI, Uniform Resource Identifier a service, which provides resource representation such as JSON and set of HTTP Methods.
+
+
+How Node.js works?
+	Node is completely event-driven. 
+	Basically the server consists of one thread processing one event after another.
+	A new request coming in is one kind of event. 
+	The server starts processing it and when there is a blocking IO operation, it does not wait until it completes and instead registers a callback function. 
+	The server then immediately starts to process another event (maybe another request). 
+	When the IO operation is finished, that is another kind of event, and the server will process it (i.e. continue working on the request) by executing the callback as soon as it has time.
+	Node JS Platform does not follow Request/Response Multi-Threaded Stateless Model. 
+	It follows Single Threaded with Event Loop Model. 
+	Node JS Processing model mainly based on Javascript Event based model with Javascript callback mechanism.
+	Single Threaded Event Loop Model Processing Steps:
+	●	Clients Send request to Web Server.
+	●	Node JS Web Server internally maintains a Limited Thread pool to provide services to the Client Requests.
+	●	Node JS Web Server receives those requests and places them into a Queue. It is known as “Event Queue”.
+	●	Node JS Web Server internally has a Component, known as “Event Loop”. Why it got this name is that it uses indefinite loop to receive requests and process them.
+	●	Event Loop uses Single Thread only. It is main heart of Node JS Platform Processing Model.
+	●	Event Loop checks any Client Request is placed in Event Queue. If no, then wait for incoming requests for indefinitely.
+	●	If yes, then pick up one Client Request from Event Queue
+	○	Starts process that Client Request
+	○	If that Client Request Does Not requires any Blocking IO Operations, then process everything, prepare response and send it back to client.
+	○	If that Client Request requires some Blocking IO Operations like interacting with Database, File System, External Services then it will follow different approach
+	■	Checks Threads availability from Internal Thread Pool
+	■	Picks up one Thread and assign this Client Request to that thread.
+	■	That Thread is responsible for taking that request, process it, perform Blocking IO operations, prepare response and send it back to the Event Loop
+	■	Event Loop in turn, sends that Response to the respective Client.
+
+29. Global Object in Node.js
+    - global objects are global in nature and they are available all the modules. and we do not include these
+      objects in project.
+    - In Node.js, Globals are the objects which are global in nature and are available in all the modules of
+      the application. You can use these objects directly in your application, rather than having to 
+      include them explicitly. The global objects can be modules, functions, strings, object, etc. 
+      Moreover, some of these objects can be in the module scope instead of global scope.
+
+    - __filename : It represent filename of the code being executed.
+    - __dirname : represents the name of the directory of the currently executing script reside in.
+    - setTimeout
+    - clearTimeout
+    - setInterval
+    - clearInterval
+    - console
+    - process
+
+
+34. nodejs inbuild modeule
+    http: 
+        - used to create the server ( createServer() )
+        - request() method used to call 3rd pary apis
+    fs: 
+        - used to perform operaions on file
+    
+    url:
+        - parse the url string into url object
+
+    Buffer:
+        - used to handle binary data
+
+    events:
+
+    timers
+
+    
+35. Differentiate between process.nextTick() and setImmediate()
+    - process.nextTick() call the callback function immediate after the execution of current task.
+    - process.nextTick has higher priority than setImmediate
+    - if we recursively call process.nextTick it block the event loop
+
+8. How do you install, update, and delete a dependency
+    npm install
+    npm uninstall
+    npm update <packageName> OR  npm update <packageNAme>@<version>
+
+39. What are the pros and cons of Node.js
+        it is asyncronous, non blocking, event driven so handles multiple request which helps to increase performence
+        npm has large comminity
+        easy scalability
+
+        Asynchronous and Event driven
+        Fast in Code execution
+        Single Threaded but Highly Scalable
+        Node.js library uses JavaScript
+
+
+
+21. What are LTS releases of Node.js?
+LTS stands Long Term Support version of Node.js that receives all the critical bug fixes along with security updates and performance improvements. These versions are supported for at least 18 months and mainly focus on stability and security. The modifications done to the LTS versions are restricted to the bug fixes, security upgrade, npm, and documentation updates, performance improvement, etc.
+
+26. timer function
+    setTimeout -   This method is used to call a function after a certain period of time.
+    						   Execute after some delay.
+    setInterval -  This method repeat the function call after the specified interval of time.
+    							 Execute after some interval of time.
+    setImmediate - It execute before setTimeout & setInterval. 
+    							 Execute before anything else.
+
+difference between local, session, cookie storage
+
+local storage, session storage, and cookies are mechanisms for storing data locally in web browsers, each with its own scope, lifespan, and usage characteristics.
+
+	Local Storage:
+
+	Scope: Local storage stores data with no expiration date and remains even after the browser is closed. It is scoped to the domain origin (i.e., protocol, host, and port must match).
+	Lifespan: Data stored in local storage persists until explicitly deleted by the web application or cleared by the user through browser settings.
+	Usage: Local storage is commonly used for storing user preferences, application settings, or any data that needs to persist across sessions.
+
+	Session Storage:
+
+	Scope: Session storage is scoped to the current browser tab or window and is not shared across tabs or windows.
+	Lifespan: Data stored in session storage persists only for the duration of the page session. When the user closes the tab or window, the data is cleared.
+	Usage: Session storage is often used for storing temporary data that is only needed for the current session, such as form data or state information.
+
+	Cookies:
+
+	Scope: Cookies are scoped to the domain origin and can be set to specific paths or subdomains within that domain.
+	Lifespan: Cookies can have an expiration date set by the server or be session cookies that expire when the browser session ends.
+	Usage: Cookies are commonly used for maintaining user sessions, tracking user behavior, and storing small amounts of data (up to 4KB).
+
+
+redis and node cache
+
+Redis is an open-source, in-memory data store that can be used as a database, cache, or message broker. 
+It is highly versatile and provides various data structures like strings, hashes, lists, sets, and sorted sets. 
+Redis is often used for caching due to its speed and flexibility.
+
+Node.js caching typically involves caching data within the application process itself, using in-memory data structures or libraries. 
+This approach is simpler and can be effective for small to medium-sized applications.
+
+** Step of Project deploymet process
+	
+		Prepare your project:
+			Ensure your project is hosted on GitLab and is ready for deployment. Make sure your project includes all necessary files, dependencies, and configurations.
+
+		Set up AWS EC2 instance:
+			Launch an EC2 instance on AWS. Choose an appropriate instance type, configure security groups, and ensure that you have SSH access to the instance.
+
+		Install Jenkins on EC2 instance:
+			Connect to your EC2 instance using SSH and install Jenkins. You can follow the official Jenkins installation instructions for Debian-based distributions:
+
+		bash
+			Copy code
+			wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+			sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+			sudo apt-get update
+			sudo apt-get install jenkins
+
+		Install necessary plugins in Jenkins:
+				Once Jenkins is installed, access its web interface and install the necessary plugins. Key plugins include GitLab Integration, Pipeline, SSH Agent, AWS SDK, etc.
+
+		Configure Jenkins:
+				Configure Jenkins according to your requirements. Set up credentials for GitLab and AWS, configure the GitLab webhook for automatic triggering of Jenkins builds, and define the Jenkins pipeline or job for your project.
+
+		Write Jenkins pipeline script:
+				Write a Jenkins pipeline script (Jenkinsfile) to automate the deployment process. The pipeline script should define stages for cloning the project from GitLab, building the project, deploying it to the EC2 instance, and any other necessary tasks.
+
+		Set up AWS IAM roles:
+				Create IAM roles with appropriate permissions for Jenkins to access AWS services like EC2, S3, and IAM. Attach these roles to the Jenkins instance or configure them in Jenkins pipeline scripts.
+
+		Write deployment scripts:
+				Write scripts to deploy your project to the EC2 instance. This may involve cloning the project from GitLab, installing dependencies, configuring environment variables, building the project, and restarting the application server.
+
+		Test the deployment process:
+				Test your Jenkins pipeline to ensure that it clones the project, builds it successfully, and deploys it to the EC2 instance without errors. Fix any issues or errors that arise during testing.
+
+	Monitor and troubleshoot:
+	Set up monitoring and logging for your deployed application to track its performance and identify any issues. Use AWS CloudWatch or other monitoring tools to monitor server metrics, application logs, and error rates.
+
+	Implement continuous integration and deployment (CI/CD):
+	Once your deployment process is working smoothly, consider implementing CI/CD practices to automate the delivery of new features and updates to your project.
+
+Difference between Primitive vs Non-Primitive
+	Primitive																				Non-Primitive
+
+	Primitive Data types are predefined. 						Non-Primitive data types are created by the programmer
+	Primitive Data types will have certain values.				Non-Primitive data types can be NULL.
+	Size depends on the type of data structure.					Size is not fixed
+	Examples are numbers and strings.							Examples are Array and Linked List.
+	It can start with a lowercase.								It can start with uppercase.
+	This data type are immutable, meaning their 				This data type are mutable and can be modified.
+	values cannot be changed once assigned.
+
+Authentication :-
+In the authentication process, users or persons are verified.	
+It is done before the authorization process.	
+It needs usually the user’s login details.	
+Authentication determines whether the person is user or not.	
+The authentication credentials can be changed in part as and when required by the user.	
+The user authentication is visible at user end.	
+The user authentication is identified with username, password, face recognition, retina scan, fingerprints, etc. 	
+Example: Employees in a company are required to authenticate through the network before accessing their company email.
+
+Authorization :-
+While in this process, users or persons are validated.
+While this process is done after the authentication process.
+While it needs the user’s privilege or security levels.
+While it determines What permission does the user have?
+The authorization permissions cannot be changed by user as these are granted by the owner of the system and only he/she has the access to change it.
+The user authorization is not visible at the user end.
+The user authorization is carried out through the access rights to resources by using roles that have been pre-defined.
+Example: After an employee successfully authenticates, the system determines what information the employees are allowed to access. 
+
+Status codes:-
+Status codes are standard codes defined by the HTTP protocol, indicating whether a request was successful, encountered an error, or requires further action from the client.
+
+200 OK: The request was successful.
+400 Bad Request: The server could not understand the request due to invalid syntax.
+404 Not Found: The requested resource could not be found on the server.
+500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+What is the difference between fork() and spawn() methods in Node.js
+	- fork() and spawn() are methods used to create child processes
+	- When you fork() a new process, it creates a new instance of the V8 JavaScript engine, allowing you to run a separate instance of your Node.js application.
+	-fork() is commonly used for creating multiple instances of a Node.js application to take advantage of multi-core systems or to perform tasks in parallel.
+
+	-It is a more general-purpose method used for spawning any kind of child process, not necessarily Node.js modules.
+	-  spawn() does not automatically have access to the V8 JavaScript engine. It runs as a separate operating system process, and you can communicate with it via standard input/output streams.
+	- spawn() is commonly used for executing external commands or running scripts written in other languages, such as Python or Bash.
+
+What is the buffer class in Node.js.
+	- It is a built-in class that provides a way to work with binary data directly. 
+	- Buffers are used to handle raw binary data, such as images, audio, video, or network packet data.
+
+How do you create a simple Express.js application
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+jwt token - JSON Web Tokens
+npm install jsonwebtoken
+Create JWT Functions:
+Create functions to generate and verify JWT tokens.
+
+const jwt = require('jsonwebtoken');
+
+Implement Middleware:
+Create middleware to protect routes that require authentication. 
+This middleware will verify the JWT token included in the request headers.
+
+Protect Routes:
+Use the middleware to protect routes that require authentication.
+
+Generate and Send Tokens:
+When a user logs in or is authenticated, generate a JWT token and send it to the client.
+
+Users can obtain a JWT token upon login, and protected routes can be accessed by providing this token in the request headers. 
+Ensure that you store the secret key securely and never expose it publicly.
+
+const {  generateToken } = require('./jwtFunctions');
+
+app.post('/login', (req, res) => {
+    // Authenticate user, retrieve user information
+    const user = { id: 1, username: 'example' };
+
+    const token = generateToken(user);
+    res.json({ token });
+});
+
+
+const jwt = require('jsonwebtoken');
+
+const generateToken = (payload) => {
+    return jwt.sign(payload, 'secret_key', { expiresIn: '1h' }); // Change 'secret_key' to a secret key of your choice
+};
+
+const verifyToken = (token) => {
+    try {
+        return jwt.verify(token, 'secret_key'); // Change 'secret_key' to the same secret key used for signing
+    } catch (error) {
+        return null;
+    }
+};
+
+module.exports = { generateToken, verifyToken };
+
+const { verifyToken } = require('./jwtFunctions');
+
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) return res.sendStatus(401); // Unauthorized
+
+    const user = verifyToken(token);
+    if (!user) return res.sendStatus(403); // Forbidden
+
+    req.user = user;
+    next();
+};
+
+module.exports = { authenticateToken };
+
+
+const express = require('express');
+const { authenticateToken } = require('./middleware');
+const app = express();
+
+app.get('/protected', authenticateToken, (req, res) => {
+    res.json(req.user); // Access user information from the request object
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+
+
+What is cluster module ? 
+   -  Cluster module - that provided the way of creating child process that run simultaneously and share the same server port.    
+   -  Cluster module is create child processess that run on their own single thread to handle the load.
+   -  Cluster provide some properties and method :-
+        fork(), disconnect(), isDead, isMater, kill(), send()   
+
+What is JSON Web Token?
+	- JSON Web Token (JWT) is a standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. The compact size makes the tokens easy to transfer through an URL, POST parameter, or inside an HTTP header. The information in a JWT is digitally signed using a secret or public/private key pair.
+
+	JWTs can be signed using a secret or a public/private key pair.
+
+		JWTs are mainly used for authentication. After a user signs in to an application, the application then assigns JWT to that user. Subsequent requests by the user will include the assigned JWT. This token tells the server what routes, services, and resources the user is allowed to access    
+
+Whatis MVC architecture ? 
+MVC : 
+    - MVC is stand for model view controller.
+    - It is design a pattern of software project. and it mojorly use by node js application. 
+    - application and its development are divided into three interconnected parts. The advantage of this is it helps in focusing on a specific part of the application name, the ways information is presented to and accepted from, the user. It helps in allowing for efficient code reuse and the parallel development of the application. Even if the project structure might look a little different than an ideal MVC structure.
+    - In an MVC architecture, the Model represents the application's data and business logic, the View represents the presentation layer or the user interface, and the Controller acts as an intermediary between the Model and the View. The three components work together to provide a clear separation of concerns, making the application easy to maintain and test
+
+what is REPL ?
+
+The Node. js Read-Eval-Print-Loop (REPL) is an interactive shell that processes Node. js expressions. The shell reads JavaScript code the user enters, evaluates the result of interpreting the line of code, prints the result to the user, and loops until the user signals to quit
+
+
+
+Que : 
+--  CSRF, Optional, ORM which method you have use in ORM 
+--  Buble in node js
+
+
+
+*************security for project******************
+Immpliment the seccurity in node js project :
+
+1. Use HTTPS : 
+	Use https insted of http by securli transmitted data between client and server is encrypted.
+2. Implementing the authentication and authorization:
+	secure the API using JWT that that Implementing authentication and authorization.
+3. use helmet :
+	that secure the app by setting verious http header.
+4. Sanitize User Input: 
+	use SQL injection or joi by senitizing and validatign the user input.
+5.rate limit :
+	it is brute force attack by limmiting the number of request a user can make in given time period.
+6. avaoid eval and dengerous function :
+	like use json.parse() instaed of eval()
+7. Environment and veriable configurations:
+	store sensitive information like api keys, database creaditial, secrate key in environment veriable using .env
+8. database security :
+	always use parameterize quiry or ORM eg. mysql and sequalize

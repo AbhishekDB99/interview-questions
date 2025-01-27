@@ -1,0 +1,497 @@
+nodejs (lts: 18.12.0) (current: 19.0.0)  (used: 16.17)
+mongodb (current: 6.0) (used: 4.6)
+elasticsearch (current 8.4) (used: 7.5)
+
+
+1. hoisting
+    - hoisting is where the variable of function declaration moved to top of its scope
+    ex: 
+        console.log(test);
+        var test
+        // output: undefined
+
+        console.log(test)
+        var test = 10
+        // output: undefined
+
+2. clouser
+    - clouser means the inner function has access to its outer function variable.
+    - it is used to hiding implementation details in javascript. or it is used to create the private variables or functions.
+    - by hoisting we can achive data encapsulation by creating private variables and functions
+    ex:
+        function clouser(){
+            let test = "something";
+            function inner(){
+                console.log(test);
+            }
+            inner();  // test
+        }
+        clouser();   // test
+
+3. arrow function
+    - it provides the shorter syntax than function expression
+    - arrow function dosent have there own binding to this. // this returns the object that call the function
+    - arrow function are not suitable for call, apply and bind
+
+4. what is callback function
+    - callback function is to be executed after another function finish execution.
+    - we can pass function as argument to another function.
+    - benifits : we can wait for the result of previous function call and then execute the another function call
+    - it is used to execute the code in syncronous manner. it is useful when we have wait for result that takes time.
+
+5. what is callback hell=
+    - callback means a function pass as an argument to another function.
+    - if we have multiple functions that depends on another function so we pass that is as callback. (it create unmanagable code)
+    - but it reduce the code redability and dificult to find the erros where the code breaks. and that terminology kenown as callback hell.
+
+9. what is promises
+    - promises are use to handle asyncronous operation in javascript.
+    - it is superset/next version of callback.
+    - it has three states pending, fillfilled and reject.
+
+    - Improves the code redability
+    - Better handaling on asyncronous operation
+    - Better error handaling
+
+ 
+10. async await
+    - async await are the superset of promise
+    - async means the function returns a promise
+    - await means to wait until the promise get resolved or reject.
+    - async await are used with Promises.
+
+11. New features in ES6 and ES7
+    - ES6 
+        - let and const
+        - arrow function
+        - promises
+        - Tempalte literals   //{$}
+        - multi line string (tilt iperator)
+        - default parameter
+        - destructuring (array, object)  // let obj ={p:21,q:34}     let {p,q}=obj
+        - classes
+        - modules
+        - rest parameter and spread operator
+
+13. difference between map and foreach
+    - map returns new array where foreach returns undefined
+
+        let arr = [ 10,2,44,5,45]
+        let map = arr.map((x)=>x*x)   // [100,4,...]
+        let foreach = arr.foreach((x)=>x*x)   // undefined
+
+    - map returns the array so we can use reduce(), filter(), sort() with map() but not with forEach()
+
+
+12. map 
+    - map is used to iterate the array
+    - creates new array by calling a function for every element in array
+
+    arr.map((currentValue, index, arr)=>{})
+
+13. filter
+    - filter method creates new array with the elements that pass the condition provided by function.
+    - does not executes the function with empty elements
+    - does not changes the original array
+
+    let arr = [10,23,2,33,57,4]
+    let filer = arr.filer((ele)=> ele>8)
+
+15. find
+    - returns a value of the first element in array that passes the test
+    - it returns undefined if no element are found
+    - 
+
+16. difference between "forin" and "forof"
+    - forin use to iterate objects and array but forof are used to iterate array
+    - forin iterates over property name and forof iterates over property value
+
+17. how node.js works
+    - nodejs is single threded and run on chrome v8 engine
+    - it accept the request from client and push it into event loop and dosent wait for response
+    - event loop executes the request in FIFO manner
+    - nodejs is asyncronous in nature.
+
+18. difference between var, let, const
+    - var is functional scope, let and const is block scope.
+    - var can be declared without initialization, let and const can not be decalred without initialization
+    - var can be updated and re decalred, let can be updated but not re decalred, const not updated and re decalred
+    - var allows hoisting , let and const dont allows.
+
+19. difference between dependancies and dev dependancies
+    - dependancies consist of package that required in runtime.
+    - dev dependancies consist of packages that are used in project development phase not in production phase.
+
+20. difference between package.json and packagelog.json
+    - package.json contains the information about minimum required version of the packages.
+    - packagelog.json contains the information of exact version of install package and maitain the hirerchy of required child packages.
+
+21. package.json
+    - package.json file contains the metadata of project
+    - name of project, version of project, description, dependancies, dev dependancies, repository, 
+
+23. call apply and bind
+    - call : 
+        call method calls the function with the given this value and arguments.
+
+        function Product(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+        function Food(name, price) {
+          Product.call(this, name, price);
+          this.category = 'food';
+        }
+        console.log(new Food('cheese', 5).name);
+        // Expected output: "cheese"
+
+    - apply:
+        apply is similar to call except it accept argument in array.
+
+        // const numbers = [5, 6, 2, 3, 7];
+        // const max = Math.max.apply(null, numbers);
+        // Expected output: 7
+        
+
+    - bind:
+        bind method returns a function with the provided this.
+
+        const module = {
+          x: 42,
+          getX: function () {
+            return this.x;
+          },
+        };
+
+        const unboundGetX = module.getX;
+        console.log(unboundGetX()); // The function gets invoked at the global scope
+        // Expected output: undefined
+
+        const boundGetX = unboundGetX.bind(module);
+        console.log(boundGetX());
+        // Expected output: 42
+
+24. promises.all v/s promises.allSettled
+    promise.all - it resolve only when all the promise get resolve if any on get fails then it reject the promise
+        const promise1 = Promise.resolve(3);
+        const promise2 = 42;
+        const promise3 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 100, 'foo');
+        });
+ 
+        Promise.all([promise1, promise2, promise3]).then((values) => {
+        console.log(values);
+        });
+        // Expected output: Array [3, 42, "foo"]
+ 
+    promise.allSettled - this will always resolve with an array having info of each promises having resolve or reject
+ 
+        const promise1 = Promise.resolve(3);
+        const promise2 = new Promise((resolve, reject) =>
+        setTimeout(reject, 100, 'foo'),
+        );
+        const promises = [promise1, promise2];
+ 
+        Promise.allSettled(promises).then((results) =>
+        results.forEach((result) => console.log(result.status)),
+        );
+ 
+        // Expected output:
+        // "fulfilled"
+        // "rejected"
+
+25. rest parameter and spread operator.
+     - spread operator : it is help to expand an iterable such as an array where we want to add multiple argument are needed in array, also we it will expand the object expression
+
+     -rest parameter : it help to compress the array and object. it collect the several element. in function when we require to pass argument but were not sure how many element we have to pass.
+
+26. timer function
+    setTimeout - setTimeout excecutes the first argument afer the specified time has completed.
+    setInterval - repeat the function call after the specified time 
+    setImmediate - it execute all operation  then it will be executed.
+
+27. What are the two types of API functions in Node.js
+    - asyncronous , Non blocking 
+    - syncronous , blocking function
+
+28. http methods
+    - GET, POST, PUT, PATCH, DELETE
+
+29. Global Object in Node.js
+    - global objects are global in nature and they are available all the modules. and we do not include these
+      objects in project.
+    - In Node.js, Globals are the objects which are global in nature and are available in all the modules of
+      the application. You can use these objects directly in your application, rather than having to 
+      include them explicitly. The global objects can be modules, functions, strings, object, etc. 
+      Moreover, some of these objects can be in the module scope instead of global scope.
+
+    - __filename : It represent filename of the code being executed.
+    - __dirname : represents the name of the directory of the currently executing script reside in.
+    - setTimeout
+    - clearTimeout
+    - setInterval
+    - clearInterval
+    - console
+    - process
+
+30. events in nodejs
+    - events are the build in module in node js.
+    - we can create, fire, and listen the custom events
+    - for that we need to import EventEmitter calss from enevts.
+    - emit method are used to fire the event and in 'on' method we can wtite handler.
+    - eventEmmitter.on(event, listener) and eventEmitter.addListener(event, listener) are pretty much similar
+    - eventEmitter.once(event, listener) fires at most once for a particular event and will be removed from listeners array after it has listened once.
+
+31. What is an EventEmitter in Node.js
+    - EventEmitter is a class used to create custom events in node js
+    - is provide the multiple properties like emit, on, once, addListener
+
+32. What does event-driven programming mean.
+    - In event driven programming the control flow of the program is handle by events.
+    - Node js is extensively used the events thats why it is faster.
+    - two main components are in event driven programming
+    - one is callback function (event handler) is called when event is trigger
+    - second is event loop that listen the event and call the corrosponding callback function.
+
+  (enevt emitter)
+    events -------- event loop -------- event handler
+
+    advantages:
+        Simplicity of Programming
+
+33. what is event loop
+    - event loop used to handle non blocking i/o operations.
+    - it is an infinite loop that continous check the event que and pass that event to event handler
+    - event handler executes the event and return the result.
+    - if the event que is empty then event loop sleep.
+
+34. nodejs inbuild modeule
+    http: 
+        - used to create the server ( createServer() )
+        - request() method used to call 3rd pary apis
+    fs: 
+        - used to presform operations on file
+    
+    url:
+        - parse the url string into url object
+
+    Buffer:
+        - used to handle binary data
+
+    events:
+
+    timers
+
+    
+35. Differentiate between process.nextTick() and setImmediate()
+    - process.nextTick() call the callback function immediate after the execution of current task.
+    - process.nextTick has higher priority than setImmediate
+    - if we recursively call process.nextTick it block the event loop
+
+
+
+
+36. Ways to copy Object
+    let obj = {
+        "name":"abc"
+    }
+
+    // let obj2 = {...obj}
+
+    // let obj2 = Object.assign({},obj)
+
+    // let obj2 = JSON.parse(JSON.stringify(obj));
+
+37. Ways to create objects
+    - Object literals 
+        let obj = { firstname:"abc" }
+    - using new keyword
+        let obj = new Object()
+    - using classes
+        //using es6 classes
+        class Vehicle {
+            constructor(name, maker, engine) {
+                this.name = name;
+                this.maker =  maker;
+                this.engine = engine;
+            }
+        }
+        let car1 = new Vehicle('GT', 'BMW', '1998cc');
+        console.log(car1.name);  //GT
+
+
+38. How do you install, update, and delete a dependency
+    npm install
+    npm uninstall
+    npm update <packageName> OR  npm update <packageNAme>@<version>
+
+39. What are the pros and cons of Node.JS
+        it is asyncronous, non blocking, event driven so handles multiple request which helps to increase performence
+        npm has large comminity
+        easy scalability
+        Asynchronous and Event driven
+        Fast in Code execution
+        Single Threaded but Highly Scalable
+        Node.js library uses JavaScript
+
+40. Why Node.js is single threaded?
+         - Node js is single threaded for asynchronous processing.
+        - It uses an infinite loop to receive requests & process them.
+ 
+41. jwt token ? 
+    - jwt is stand for json web token.
+    - it define conpact and self-contain way for securely transmitting the information between parties as a json object. this information is trusted bcouse it is digitally signed. JWT can signed using the secret key , or pulblic, private key.
+    - JWT can encrypted to also priovide secrect key between two parties.
+    - jWT is use for Authorization and information exchange.  
+  Authorization :
+        - it is most common scenario to use jwt. once the user can logged, each subsequent request will include in jwt, allowing to access route, services that permited to jWT.
+  information exchange : 
+        - JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed - for example, using public/private key pairs
+
+42. difference between local, session, cookie storage
+
+local storage : 
+session : 
+cookie : 
+
+4. use of "this" function
+6. syncronous and asyncronous means
+12. difference between local, session, cookie storage
+shallo copy v/s deep copy
+middleware
+what is express.js
+explain routing in express
+different status codes
+jwt token
+what is modules - is a independant, reusable functon or group of function
+purpose of module.exports
+
+How do you create a simple Express.js application
+
+What is the buffer class in Node.js
+https://github.com/learning-zone/nodejs-interview-questions
+
+21. What are LTS releases of Node.js?
+LTS stands Long Term Support version of Node.js that receives all the critical bug fixes along with security updates and performance improvements. These versions are supported for at least 18 months and mainly focus on stability and security. The modifications done to the LTS versions are restricted to the bug fixes, security upgrade, npm, and documentation updates, performance improvement, etc.
+
+
+What is the difference between fork() and spawn() methods in Node.js?
+
+
+
+
+tell me about yourself
+    - My name is Nitin Raundalkar. I am 26 year old and I am from Buldhana (Maharastra)
+    - I have completed by Engineering from SND college of Engineering and RC under Pune university.
+    - from last 1.8 years i am working in facile service as backend developer which includes javascript nodejs express mongodb elasticsearch
+
+
+
+Given a string, reverse each word in the sentence.
+How to check if an object is an array or not? Provide some code.
+How to empty an array in JavaScript?
+How would you check if a number is an integer?
+Write a function that would allow you to do this?
+    var addSix = createBase(6);
+    addSix(10); // returns 16
+    addSix(21); // returns 27
+
+How would you use a closure to create a private counter?
+
+function counter() {
+  var _counter = 0;
+  // return an object with several functions that allow you
+  // to modify the private _counter variable
+  return {
+    add: function(increment) { _counter += increment; },
+    retrieve: function() { return 'The counter is currently at: ' + _counter; }
+  }
+}
+
+// error if we try to access the private variable like below
+// _counter;
+
+// usage of our counter function
+var c = counter();
+c.add(5); 
+c.add(9); 
+
+// now we can access the private variable in the following way
+c.retrieve(); // => The counter is currently at: 14
+
+
+
+
+https://www.fullstack.cafe/blog/javascript-code-interview-questions
+https://javascript.plainenglish.io/javascript-coding-practice-challenges-strings-f2c9a98e8e5e
+https://tkssharma.com/top-coding-interview-questions/
+https://www.toptal.com/javascript/interview-questions
+https://www.geeksforgeeks.org/tag/javascript-string/
+https://avantutor.com/blog/10-simple-javascript-string-exercises/
+https://www.edureka.co/blog/javascript-string-functions/
+
+
+
+
+// front end coding
+1. two button --> plus and minus ---> click on plus will increment the number and click on minus will decrement the number
+2. On button click increment the number.
+
+
+
+
+https://www.interviewbit.com/javascript-interview-questions/#explain-passed-by-value-and-passed-by-reference
+
+https://github.com/sudheerj/javascript-interview-questions
+
+https://www.javatpoint.com/javascript-interview-questions
+
+https://www.simplilearn.com/tutorials/javascript-tutorial/javascript-interview-questions
+
+https://www.edureka.co/blog/interview-questions/javascript-interview-questions/
+
+https://www.guru99.com/javascript-interview-questions-answers.html
+
+
+
+
+Array
+Q1: Write a java program to find duplicate elements in an array?
+Q2: Write a java program to find second largest element in an array
+of integers?
+Q3: Maximum consecutive one’s (or zeros) in a binary array?
+Q4: Write a java program to find all pairs of elements in an integer
+array whose sum is equal to a given number?
+Q5: Write a java program to find continuous sub array whose sum is
+equal to a given number?
+Q6: Write a java program to find the intersection of two arrays?
+Q8: Write a java program to count occurrences of each element in an
+array?
+Q7: Write a java program to find a missing number in an integer
+array?
+Q10: Count Distinct element in every k size window
+
+// Q9: Find a rotation with maximum hamming distance?
+
+
+
+String
+Print duplicate characters from a string?
+Check if two strings are anagrams or not
+Check if a string is a rotated palindrome or not
+Count number of substrings in a string
+
+
+Q12: Check if two strings are k-anagrams or not
+Q13: Check for Balanced Brackets
+Q16: Find all possible palindromic substrings of a string
+Q17: Find the longest substring of a string containing distinct
+characters
+Q19: Find first k non-repeating characters in a string in a single
+traversal
+Q20: Check if a repeated subsequence is present in a string or not
+
+
+polyfill of - forEach, map, filter, reduce, every, some, indexOf, includes, find, findIndex, flat ?
+
+state and prop in node js ? 

@@ -1,0 +1,63 @@
+Promises
+error handling
+JS: Promose.all, Promise.allSettled, Promise.race, Promise.any, undefined vs null, custom errors using classes,
+new Map(), new Set()
+Second highest salary query
+MySQL vs Postgres
+sql rank() function
+clousers
+event loop
+child processes
+cluster module
+Hoisting
+temporal dead zone
+What is node js
+What is hoisting
+What are differences between map and foreach
+What are differences between slice and splice
+What is event loop
+What is asynchronous
+Some technical questions in hoisting
+What is event bubbling
+What is clouser
+How to exceptions are handled in NodeJS
+- What is multer
+- Explain closures
+- What are event emitters in Node JS
+- What methods or functions are present in Node JS
+- Difference between git pull and git fetch
+- What is setInterval
+- Difference between == & === in JS
+1.sharding in mongodb
+2. Lookup in mongodb.
+3.split method in array.
+4. One coding question.
+5.cluster in node js.
+6.spread and rest
+7.Es6 features
+8.promise related question
+9 node js working.
+promise
+promise.all
+promise.allsettled
+hoistting
+closures
+mongodb aggreation queries(lookup and project)
+event loop
+queue and stack
+cluster in mongodb
+splice method
+reduce method
+
+And some js program question
+sort the array
+output questions
+1. lookup what are four terms used in lookup
+2. how to remove duplicacy in array 
+3. Write query in mongodb make status retire if age is greater than 60
+4. ”oneMantwoManthreeMan” remove Man with Woman in given string
+5. reduce
+6. splice
+7. hoisting example with code 
+8. closure example with code
+9. event loop explain or how nodejs works

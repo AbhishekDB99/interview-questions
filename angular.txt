@@ -1,0 +1,384 @@
+1) What is Angular? / What do you know about Angular?
+
+It is an open-source front-end web framework based on TypeScript.
+Angular is one of the most popular JavaScript frameworks developed and maintained by Google.
+It is most suited for developing enterprise web applications because its code is reusable and maintainable.
+
+2) What are templates in Angular?
+Angular Templates are written with HTML that contains Angular-specific elements and attributes.
+Angular API evaluates("processes" or "fills in) an HTML template of a component, creates HTML, and renders it.
+
+There are two ways to create a template in an Angular component:
+    Inline Template :- The Template will be wrapped inside the single or double quotes.
+    Linked Template :- A component may include an HTML template in a separate HTML file.
+                      The templateUrl option is used to indicate the path of the HTML template file.
+
+3) Decorators :-
+Decorators are a fundamental concept in TypeScript
+Decorators are methods or design patterns that are labeled with a prefixed @ symbol and preceded by a class, method, or property. 
+They enable the modification of a service, directive, or filter before it is utilized.
+
+4) annotations  :-
+These are language features that are hard-coded. 
+Annotations are merely(only,just) metadata that is set on a class to reflect the metadata library. 
+
+5) Angular integrates some powerful features like 
+Declarative Templates, 
+End-To-End Tooling,
+Dependency Injection
+
+    Declarative templates :-
+        Angular uses declarative templates to define the structure of UI by describing how the UI should look and behave.
+        Ex.- *ngFor directive is used declaratively to iterate over the items array and display each item's name in a list.
+
+    End-To-End Tooling :-
+        It includes the Angular CLI (Command Line Interface), which simplifies various tasks such as project setup, code generation, testing, and deployment.
+        Ex.- ng generate component my-component
+    
+    Dependency Injection (DI) :-
+        Dependency Injection is a design pattern in which components receive their dependencies from an external source, rather than creating them directly. 
+
+6) Directives
+A directive is a class in Angular that is declared with a @Directive decorator.
+Angular directives are used to extend the power of the HTML by giving it new syntax.
+Every directive has its own behaviour and can be imported into various components of an application.
+
+    There are three kinds of directives in Angular :
+    1. Components : These directives have a view, a stylesheet and a selector property. 
+                    Components are the most common of the three directives.
+                    @Component({
+                        selector: 'app-header',
+                        templateUrl: './header.component.html',
+                        styleUrls: ['./header.component.less'],
+                    })
+    2. Structural directives : Change the DOM layout by adding and removing DOM elements.
+                               Structural Directives change the structure of the view.
+                               Ex.- NgFor, NgIf, NgSwitch are the examples of structural directive.
+    3. Attribute directives : Change the appearance or behavior of an element, component, or another directive.
+                              Ex.- NgStyle - The built-in NgStyle directive is the example of Attribute directive.
+
+7) Components
+In Angular, components are the basic building blocks, which control a part of the UI for any application.
+A component is defined using the @Component decorator. 
+Every component consists of three parts, the template which loads the view for the component, 
+a stylesheet which defines the look and feel for the component, and 
+a class that contains the business logic for the component.
+
+For creating a component command: ng generate component testOr ng g c test
+
+8) Modules
+A module is a place where we can group components, directives, services, and pipes. Module decides whether the components, directives, etc can be used by other modules, by exporting or hiding these elements. Every module is defined with a @NgModule decorator.
+
+By default, modules are of two types:
+
+Root Module
+Feature Module
+Every application can have only one root module whereas, it can have one or more feature modules.
+
+A root module imports BrowserModule, whereas a feature module imports CommonModule.
+
+In the application the root module is defined inside app.module.ts.
+
+9) Services
+The main objective of a service is to share data, functions with different components of an Angular application.
+
+A service is defined using a @Injectable decorator. 
+A function defined inside a service can be invoked from any component or directive.
+
+To create a service command: ng g s test-service
+
+10) What is data binding in Angular
+
+Data binding is one of the most significant and effective elements for creating communication between the DOM and the component.
+
+There are Four types of Data binding in Angular: 
+
+Property Binding
+To connect a DOM element's property to a field that is a declared property in our TypeScript component code.
+
+Event Binding :-
+Using event binding, you may respond to DOM events like button clicks and mouse movements. 
+When a DOM event (such as a click, change, or keyup) occurs, the component's designated method is called.
+
+String Interpolation
+Export data from TypeScript code to an HTML template( view ),
+The data from the component is shown to the view using the template expression enclosed in double curly braces. The value of a component property is added by using string interpolation.
+
+Two way data binding
+Data sharing between a component class and its template is referred to as two-way data binding. 
+If you alter data in one area, it will immediately reflate at the other end.
+Property binding and event binding are coupled in two-way data binding.
+
+11) String interpolation 
+It is a One-way Data-Binding technique that is used to transfer the data from a TypeScript code to an HTML template (view).
+
+12) How does an Angular application work?
+Every Angular app consists of a file named angular.json. 
+This file will contain all the configurations of the app.
+While building the app, the builder looks at this file to find the entry point of the application.
+Inside the build section, the main property of the options object defines the entry point of the application which in this case is main.ts.
+The main.ts file creates a browser environment for the application to run, and, along with this, 
+it also calls a function called bootstrapModule, which bootstraps the application. 
+The AppModule is declared in the app.module.ts file. 
+This module contains declarations of all the components.
+This component is defined in app.component.ts file. 
+This file interacts with the webpage and serves data to it.
+    Each component is declared with three properties:
+        Selector - used for accessing the component
+        Template/TemplateURL - contains HTML of the component
+        StylesURL - contains component-specific stylesheets
+After this, Angular calls the index.html file. 
+This file calls the root component that is app-root. 
+The root component is defined in app.component.ts.
+The HTML template of the root component is displayed inside the <app-root> tags.
+This is how every angular application works.
+
+13) What are lifecycle hooks in Angular? Explain a few lifecycle hooks.
+When the Angular components are created, they enter their lifecycle and remain when they are destroyed.
+Lifecycle hooks are used to check the phases and trigger changes at specific phases during the entire duration.
+
+ngOnChanges( ):
+This hook/method is called before ngOnInit and whenever one or more input properties of the component change.
+This method/hook receives a SimpleChanges object which contains the previous and current values of the property.
+
+ngOnInit( ): This is the second lifecycle hook. It is called once, after the ngOnChanges hook. 
+It is used to initialize the component and sets the input properties of the component.
+
+ngDoCheck( ): This hook is called after ngOnChanges and ngOnInit. 
+It is used to detect and act on changes that Angular cannot detect. 
+In this hook, we can implement our change detection algorithm.
+
+ngAfterContentInit( ): This hook is called after the first ngDoCheck hook. 
+This hook responds after the content gets projected inside the component.
+
+ngAfterContentChecked( ): This hook is called after ngAfterContentInit and every subsequent ngDoCheck. 
+It responds after the projected content is checked.
+
+ngAfterViewInit( ): This hook is called after a component's view or initializing a child component's view.
+
+ngAfterViewChecked( ): This hook is called after ngAfterViewInit. 
+It responds after the component's view or when the child component's view is checked.
+
+ngOnDestroy( ): This hook is called just before Angular destroys the component. 
+This is used to clean up the code and detach event handlers.
+
+In the above hooks we have described, the ngOnInit hook is the most often used hook. 
+Let's see how to use the ngOnInit hook. 
+If you have to process a lot of data during component creation, it's better to do it inside the ngOnInit hook rather than the constructor:
+
+14) What are HTTP interceptors
+Using the HttpClient, interceptors allow us to intercept incoming and outgoing HTTP requests. They are capable of handling both HttpRequest and HttpResponse. We can edit or update the value of the request by intercepting the HTTP request, and we can perform some specified actions on a specific status code or message by intercepting the answer.
+
+15) What is AOT compilation? What are the advantages of AOT?
+Every Angular application consists of components and templates that the browser cannot understand. Therefore, all the Angular applications need to be compiled first before running inside the browser.
+
+Angular provides two types of compilation:
+
+JIT(Just-in-Time) compilation
+AOT(Ahead-of-Time) compilation
+
+In JIT compilation, the application compiles inside the browser during runtime. Whereas in the AOT compilation, the application compiles during the build time.
+
+By default, angular builds and serves the application using JIT compiler:
+
+ng build
+ng serve
+
+For using AOT compiler following changes should be made:
+
+ng build --aot
+ng serve --aot
+
+16) Explain MVVM architecture
+MVVM architecture consists of three parts:
+
+Model
+View
+ViewModel
+
+Model contains the structure of an entity. In simple terms it contains data of an object.
+View is the visual layer of the application. It displays the data contained inside the Model. In angular terms, this will be the HTML template of a component.
+ViewModel is an abstract layer of the application. A viewmodel handles the logic of the application. It manages the data of a model and displays it in the view.
+View and ViewModel are connected with data-binding (two-way data-binding in this case). Any change in the view, the viewmodel takes a note and changes the appropriate data inside the model.
+
+17) What is transpiling in Angular ?
+Transpiling is the process of transforming the source code of one programming language into the source code of another. Typically, in Angular, this implies translating TypeScript to JavaScript. TypeScript (or another language like as Dart) can be used to develop code for your Angular application, which is subsequently transpiled to JavaScript. This occurs naturally and internally
+
+18) What are pipes in Angular explain with an example?
+Pipes are functions that simplify the process of wiring up your JavaScript expressions and transforming them into their desired output.
+Pipes have several built-in functions that allow you to transform data, such as value and extract. We can also create our own custom pipes.
+
+Ex.- {{ birthday | date }}
+
+19) What exactly is a parameterized pipe?
+To fine-tune its output, a pipe can receive any number of optional parameters. 
+The parameterized pipe is constructed by first stating the pipe name followed by a colon (:) and then the parameter value. 
+If the pipe supports several arguments, use colons to separate the values.
+
+Ex.- {{ birthday | date:'dd/MM/yyyy'}}
+
+20) What are pure Pipes?
+These are pipelines that only employ pure functions. As a result, a pure pipe does not employ any internal state, and the output remains constant as long as the parameters provided remain constant. 
+Angular calls the pipe only when the parameters being provided change. 
+A single instance of the pure pipe is utilized in all components.
+
+21) What are impure pipes?
+Angular calls an impure pipe for each change detection cycle, independent of the change in the input fields. 
+For each of these pipes, several pipe instances are produced. 
+These pipes' inputs can be altered.
+
+By default, all pipelines are pure. However, as demonstrated below, you can specify impure pipes using the pure property.
+
+Example:
+
+@Pipe({
+    name: 'impurePipe',
+    pure: false/true    
+})
+export class ImpurePipe {}
+
+22) How are observables different from promises?
+The first difference is that an Observable is lazy whereas a Promise is eager.
+
+Promise                  Observable
+Emits a single value    Emits multiple values over a period of time
+Not Lazy                Lazy. An observable is not called until we subscribe to the observable
+Cannot be cancelled Can 
+be cancelled by using the 
+unsubscribe() method
+                            Observable provides operators like map, forEach, filter, reduce, retry, retryWhen etc.
+
+23) What is Eager and Lazy loading?
+
+Loading: The eager loading technique is the default module-loading strategy. 
+Eager loading feature modules are loaded before the program begins. 
+This is primarily utilized for small-scale applications.
+
+Lazy Loading: Lazy loading loads the feature modules dynamically as needed. 
+This speeds up the application. 
+It is utilized for larger projects where all of the modules are not required at the start.
+
+24) What are RxJs in Angular ?
+
+RxJS is an acronym that stands for Reactive Extensions for JavaScript. 
+It is used to enable the use of observables in our JavaScript project, allowing us to do reactive programming. RxJS is utilized in many popular frameworks, including Angular since it allows us to compose our asynchronous or callback-based code into a sequence of operations executed on a data stream that releases values from a publisher to a subscriber. 
+Other programming languages, such as Java and Python, offer packages that allow them to develop reactive programs utilizing observables.
+
+Most of the time, rxJs is used in HTTP calls with angular. Because http streams are asynchronous data, we can subscribe to them and apply filters to them.
+
+26) What is Change Detection, and how does the Change Detection Mechanism work?
+The process of synchronizing a model with a view is known as Change Detection. 
+Even when utilizing the ng Model to implement two-way binding, which is syntactic sugar on top of a unidirectional flow. 
+Change detection is incredibly fast, but as an app's complexity and the number of components increase, change detection will have to do more and more work.
+
+Change Detection Mechanism-moves only ahead and never backward, beginning with the root component and ending with the last component. 
+This is what one-way data flow entails. The tree of components is the architecture of an Angular application. 
+Each component is a child, but the child is not a parent. 
+A $digest loop is no longer required with the one-way flow.
+
+26) How does one share data between components in Angular?
+Following are the commonly used methods by which one can pass data between components in angular:
+
+Parent to child using @Input decorator
+Consider the following parent component:
+
+     @Component({
+       selector: 'app-parent',
+       template: `
+         <app-child [data]=data></app-child>
+       ` ,
+       styleUrls: ['./parent.component.css']
+     })
+     export class ParentComponent{
+       data:string = "Message from parent";
+       constructor() { }
+     }
+In the above parent component, we are passing “data” property to the following child component:  
+
+ import { Component, Input} from '@angular/core';
+     @Component({
+       selector: 'app-child',
+       template:`
+         <p>{{data}}</p>
+       `,
+       styleUrls: ['./child.component.css']
+     })
+     export class ChildComponent {
+       @Input() data:string
+       constructor() { }
+     }
+In the child component, we are using @Input decorator to capture data coming from a parent component and using it inside the child component’s template.
+
+Child to parent using @ViewChild decorator
+Child component:
+
+import {Component} from '@angular/core';
+     @Component({
+       selector: 'app-child',
+       template:`
+         <p>{{data}}</p>
+       `,
+       styleUrls: ['./child.component.css']
+     })
+     export class ChildComponent {
+       data:string = "Message from child to parent";
+       constructor() { }
+     }
+ Parent Component
+
+import { Component,ViewChild, AfterViewInit} from '@angular/core';
+     import { ChildComponent } from './../child/child.component';
+     @Component({
+       selector: 'app-parent',
+       template: `
+         <p>{{dataFromChild}}</p>
+       ` ,
+       styleUrls: ['./parent.component.css']
+     })
+     export class ParentComponent implements AfterViewInit {
+       dataFromChild: string;
+       @ViewChild(ChildComponent,{static:false}) child;
+       ngAfterViewInit(){
+         this.dataFromChild = this.child.data;
+       }
+       constructor() { }
+     }    
+In the above example, a property named “data” is passed from the child component to the parent component.
+
+@ViewChild decorator is used to reference the child component as “child” property.
+
+Using the ngAfterViewInit hook, we assign the child’s data property to the messageFromChild property and use it in the parent component’s template.
+
+Child to parent using @Output and EventEmitter
+In this method, we bind a DOM element inside the child component, to an event ( click event for example ) and using this event we emit data that will captured by the parent component:
+
+Child Component: 
+
+import {Component, Output, EventEmitter} from '@angular/core';
+     @Component({
+       selector: 'app-child',
+       template:`
+         <button (click)="emitData()">Click to emit data</button>
+       `,
+       styleUrls: ['./child.component.css']
+     })
+     export class ChildComponent {
+       data:string = "Message from child to parent";
+       @Output() dataEvent = new EventEmitter<string>();
+       constructor() { }
+       emitData(){
+         this.dataEvent.emit(this.data);
+       }
+     }      
+ As you can see in the child component, we have used @Output property to bind an EventEmitter. This event emitter emits data when the button in the template is clicked.
+
+In the parent component’s template we can capture the emitted data like this:
+
+ <app-child (dataEvent)="receiveData($event)"></app-child>     
+ Then inside the receiveData function we can handle the emitted data:
+
+receiveData($event){
+       this.dataFromChild = $event;
+     }
+
+boxmodel, marging,

@@ -1,0 +1,240 @@
+1. What is the difference between "Stored Procedure" and "Function"?
+
+
+
+1. A procedure can have both input and output parameters, but a function can only have input parameters.
+
+
+2. Inside a procedure we can use DML (INSERT/UPDATE/DELETE) statements. But
+
+inside a function, we can't use DML statements. 
+3. We can't utilize a Stored Procedure in a Select statement. But we can use a function.
+
+in a Select statement.
+
+
+4. We can use a Try-Catch Block in a Stored Procedure but inside a function, we can't
+
+use a Try-Catch block.
+5. We can use transaction management in a procedure but we can't in a function.
+
+
+6. We can't join a Stored Procedure but we can join functions.
+
+
+7. Stored Procedures cannot be used in the SQL statements anywhere in the WHERE/HAVING/SELECT section. But we can use a function anywhere.
+
+
+8. A procedure can return 0 or n values (max 1024). But a function can return only 1 value that is mandatory.
+
+
+9. A procedure can't be called from
+
+2.What is difference between "Clustered Index" and "Non Clustered Index?     
+
+
+
+1. A Clustered Index physically stores the data of the table in the order of the keys values and the data is resorted every time whenever a new value 
+is inserted or a value is updated in the column on which it is defined, whereas a non-clustered index creates a separate list of key values (or creates a table of
+pointers) that points towards the location of the data in the data pages.
+
+
+2. A Clustered Index requires no separate storage than the table storage. It forces the rows to be stored sorted on the index key whereas a non-clustered
+ index requires.
+
+separate storage than the table storage to store the index information. 
+3. A table with a Clustered Index is called a Clustered Table. Its rows are stored in aTree structure sorted whereas a table without any clustered indexes 
+is called a nonclustered
+
+table. Its rows are stored in a heap structure unsorted.
+
+
+4. The default index is created as part of the primary key column as a Clustered Index.
+
+
+5. In a Clustered Index, the leaf node contains the actual data whereas in a nonclustered index, the leaf node contains the pointer to the data rows of the table.
+
+
+6. A Clustered Index always has an Index Id of 1 whereas non-clustered indexes have Index Ids
+
+
+7. A Table can have only 1 Clustered Index whereas prior to SQL Server 2008 only 249 non-clustered indexes can be created.
+ With SQL Server 2008 and above 999 nonclustered
+
+indexes can be created.
+
+
+8. A Primary Key constraint creates a Clustered Index by default whereas A Unique Key constraint creates a non-clustered index by default.
+
+
+
+
+3.What is the difference between the "DELETE" and "TRUNCATE" commands?
+
+
+1. The DELETE command is used to remove rows from a table based on a WHERE condition whereas TRUNCATE removes all rows from a table.
+
+
+2. So we can use a where clause with DELETE to filter and delete specific records whereas we cannot use a Where clause with TRUNCATE
+
+
+3. DELETE is executed using a row lock, each row in the table is locked for deletion whereas TRUNCATE is executed using a table lock and the entire table 
+is locked for removal of all records.
+
+
+4. DELETE is a DML command whereas TRUNCATE is a DDL command.
+
+
+5. DELETE retains the identity of the column value whereas in TRUNCATE, the Identify column is reset to its seed value if the table contains any identity column.
+
+
+6. To use Delete you need DELETE permission on the table whereas to use Truncate on
+
+a table you need at least ALTER permission on the table.
+
+
+7. DELETE uses more transaction space than the TRUNCATE statement whereas.Truncate uses less transaction space than DELETE statement.
+
+
+8. DELETE can be used with indexed views whereas TRUNCATE cannot be used with indexed views.
+
+
+9. The DELETE statement removes rows one at a time and records an entry in the
+
+transaction log for each deleted row whereas TRUNCATE TABLE removes the data
+
+by 
+deallocating the data pages used to store the table data and records only the page deallocations in the transaction log.
+10. Delete activates a trigger 
+because the operation is logged individually whereas TRUNCATE TABLE can't activate a trigger because the operation does not log individual row deletions.
+
+
+
+4. What is the difference between the "WHERE" clause and the "HAVING"
+
+clause?
+
+
+1. WHERE clause can be used with a Select, Update, and Delete Statement Clause but be used only with a Select statement.
+
+the HAVING clause can 
+2. We can't use an aggregate function in the WHERE clause unless it is in a sub-query contained in a HAVING clause whereas we can use an aggregate 
+function in the
+
+
+8. What is the difference between primary key and unique constraints?
+Ans: Primary key cannot have NULL value, the unique constraints can have NULL
+
+values. There is only one primary key in a table, but there can be multiple 
+unique constrains.
+
+
+
+9.What is database normalization?
+
+
+Ans: It is a process of analyzing the given relation schemas based on their functional dependencies and 
+primary keys to achieve the following desirable properties:
+
+
+1)Minimizing Redundancy 
+2) Minimizing the Insertion, Deletion, And Update Anomalies
+
+Relation schemas that do not meet the properties are decomposed into smaller relation schemas that could meet desirable properties.
+
+10. What is SQL?
+
+SQL is Structured Query Language designed for inserting and modifying in a relational database management system.
+
+11. What are the differences between DDL, DML and DCL in SQL?
+
+Ans: Following are some details of three.
+
+DDL stands for Data Definition Language. SQL queries like CREATE, ALTER, DROP and RENAME come under this. DML stands for Data Manipulation Language. SQL queries like SELECT, INSERT and
+
+UPDATE come under this. DCL stands for Data Control Language. SQL queries like GRANT and REVOKE come under
+
+this.
+
+12.What is the difference between having and where clause?
+
+Ans: HAVING is used to specify a condition for a group or an aggregate function used in select statement. The WHERE clause selects before grouping. The HAVING clause selects rows after grouping. Unlike HAVING clause, the WHERE clause cannot contain aggregate functions.
+
+
+
+13. What is Join?
+
+
+Ans: An SQL Join is used to combine data from two or more tables, based on a common field between them. For example, consider the following two tables.
+
+Ans: Identity (or AutoNumber) is a column that automatically generates numeric
+
+values. A start and increment value can be set, but most DBA leave these at 
+1. A GUID column also generates numbers; the value of this cannot be controlled. Identity/GUID columns do not need to be indexed.
+
+
+
+
+15.What is a view in SQL? How to create one
+
+
+Ans: A view is a virtual table based on the result-set of an SQL statement. We can create
+
+using create view syntax. 
+CREATE VIEW view_name AS SELECT column_name(s) FROM table_name
+
+WHERE condition
+
+1
+
+
+6. What are the uses of view?
+
+
+1. Views can represent a subset of the data contained in a table; consequently, a view
+
+can limit the degree of exposure of the
+ underlying tables to the outer world: a given user may have permission to query the view, while denied access to the rest of the base table.
+
+
+2. Views can join and simplify multiple tables into a single virtual table
+
+
+3. Views can act as aggregated tables, where the database engine aggregates data (sum, average etc.) and presents the calculated results as part of the data
+
+
+4. Views can hide the complexity of data; for example a view could appear as Sales2000
+
+?? Sales2001, transparently partitioning the actual underlying table.
+
+
+5. Depending on the SQL engine used, views can provide extra security.
+
+
+*************Store Procedure************
+
+1. store procedure :
+    - A stored procedure is a set of SQL statements that can be executed with a single call. It can have input parameters, output parameters, or both.
+    - syntax : 
+        CREATE PROCEDURE procedure_name ([IN|OUT|INOUT] parameter_name datatype, ...)
+        BEGIN
+             -- SQL statements
+        END;
+
+    - IN : - use to pass values into store procedure and function.
+          - the value pass as 'IN' it can not be change  or modify the value within procedure.
+          - eg : IN field_Name datatype(100)
+    - OUT : - use to return the value from strore procedure that back to the caller
+           - the parameter can modify whitin procedure
+
+    - INOUT : - this parameter can both accept input parameter and return modifeid output parameter
+
+2. function : 
+        - it is same for procedure bbut it retun the single value. and it can accept only input parameter that use for return calculation or returning specific result..
+        - syntax : 
+            CREATE FUNCTION function_name (parameter_name datatype, ...)
+            RETURNS return_datatype
+            BEGIN
+                    -- SQL statements
+            RETURN value;
+            END;
